@@ -60,3 +60,6 @@ h3{
 .body-part{
     text-align: left;
 }
+.number-of-vote{
+    text-align: right;
+}
