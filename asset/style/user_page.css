@@ -60,7 +60,7 @@ h3{
 .body-part{
     text-align: left;
 }
-.number-of-vote{
+.number-of-vote, .number-of-respds, .q-row{
     text-align: right;
 }
 
@@ -69,4 +69,19 @@ i{
 }
 .checkbox{
     border-radius: 50%;
+}
+.surv{
+    border: none;
+    background-color: rgb(32, 42, 56);
+}
+.surv-title{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.surv-disc{
+    font-size: 2rem;
+}
+.surv:focus{
+    border: none;
+    outline: none;
 }
