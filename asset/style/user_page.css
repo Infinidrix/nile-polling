@@ -60,6 +60,7 @@ h3{
 .body-part{
     text-align: left;
 }
+
 .number-of-vote, .number-of-respds, .q-row{
     text-align: right;
 }
@@ -86,3 +87,8 @@ i{
     outline: none;
     color: white;
 }
+
+.number-of-vote{
+    text-align: right;
+}
+
