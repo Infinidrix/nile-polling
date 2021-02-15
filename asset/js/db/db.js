@@ -69,8 +69,8 @@ export async function user_login(email, password){
  * or updating them if there was a previous response
  * 
  * @param {Number} user_id - The user ID
- * @param {String} survey_id - The survey ID
- * @param {Array} answers - An array containing the user response
+ * @param {Number} survey_id - The survey ID
+ * @param {Array<String|Number>} answers - An array containing the user response
  * 
  * @returns {Object} The saved survey results object
  */
