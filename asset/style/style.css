@@ -67,7 +67,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 5rem;
+        width: 7rem;
         fill: rgba(9, 190, 173, 1);
         background-color: rgba(9, 190, 173, 1);
     }
@@ -111,7 +111,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 7rem;
+        width: 9rem;
         height: 3rem;
         fill: rgba(9, 190, 173, 1);
         background-color: rgba(9, 190, 173, 1);
@@ -155,7 +155,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 7rem;
+        width: 9rem;
         height: 3rem;
         fill: rgba(9, 190, 173, 1);
         background-color: rgba(9, 190, 173, 1);
@@ -199,7 +199,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 7rem;
+        width: 9rem;
         height: 3rem;
         fill: rgba(9, 190, 173, 1);
         background-color: rgba(9, 190, 173, 1);
@@ -238,7 +238,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 9rem;
+        width: 11rem;
         height: 3rem;
         fill: rgba(9, 190, 173, 1);
         background-color: rgba(9, 190, 173, 1);
@@ -284,7 +284,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 10rem;
+        width: 13rem;
         height: 3rem;
         background-color: rgba(9, 190, 173, 1);
     }
@@ -330,7 +330,7 @@ body {
     .signB {
         filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
         opacity: 0.988;
-        width: 12rem;
+        width: 15rem;
         height: 3.5rem;
         background-color: rgba(9, 190, 173, 1);
     }
@@ -349,4 +349,58 @@ body {
     .mainImg {
         width: 80%;
     }
+}
+
+.modal-login {
+	width: 450px;
+    margin-top: 4rem;
+}
+.modal-login .modal-content {
+	border-radius: 20px;
+	border: none;
+}
+.modal-login .modal-headerr {
+	position: relative;
+	justify-content: center;
+	background: rgba(31,41,53,1);
+    color: rgba(9, 190, 173, 1);
+}
+.modal-login .modal-body {
+	padding: 30px;
+    background: rgba(31,41,53,1)
+}
+.modal-login .modal-footerr {
+	background: rgba(31,41,53,1);
+}
+.modal-login h4 {
+    padding-top: 2rem;
+	text-align: center;
+	font-size: 30px;
+}
+.modal-login label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.modal-login .form-control, .modal-login .btn {
+	min-height: 38px;
+	border-radius: 2px; 
+}
+.modal-login .hint-text {
+	text-align: center;
+}
+input{
+    color: white;
+}
+
+.form-group input{
+    background-color: rgb(71, 71, 73);
+    border: rgb(71, 71, 73);
+    color: white;
+    
+}
+.form-group{
+    color: white;
+}
+input::placeholder{
+    color: white;
 }
