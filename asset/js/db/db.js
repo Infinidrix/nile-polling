@@ -12,8 +12,8 @@ export async function init(){
       users: "++id,[&email+password],type,*tags", 
       // user_id and survey_id as a compound primary key, and an array of answers
       survey_results: "&[user_id+survey_id],*answers",
-      // autoincrementing ID, company_id, type, and an array of questions
-      surveys: "++id,company_id,type,*questions"
+      // autoincrementing ID, company_id, type, date, title, an array of questions, and the list of users that responded to it
+      surveys: "++id,company_id,type,date,title,*questions,*respondents"
   });
 
   try {
@@ -94,7 +94,7 @@ export async function addSurveyResults(user_id, survey_id, answers){
 
 
 /** Adds a survey object to the db,
- * @param {Object} survey - the survey to be saved. In format: {company_id:0, type:"", questions:[]}
+ * @param {Object} survey - the survey to be saved. In format: {company_id:0, type:"", questions:[], date: new Date(), respondents: []}
  * @returns {Object} The saved suvey
 */
 export async function addSurvey(survey){
