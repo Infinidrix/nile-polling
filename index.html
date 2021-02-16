@@ -86,7 +86,7 @@
                             <a href="#myModal" class="trigger-btn" data-toggle="modal">
                                 <button class=" signB mx-0 btn  me-3  rounded-pill" type=" button ">Sign Up as Person</button>
                             </a>
-                            <a href="#myModal" class="trigger-btn" data-toggle="modal">
+                            <a href="#myModal2" class="trigger-btn" data-toggle="modal">
                                 <button class=" signB mx-0 btn rounded-pill " style="background-color:rgba(245,127,23,1); filter: drop-shadow(0px 16px 28px rgba(245, 127, 23, 0.239));" type="button ">Sign Up as Company</button>
                             </a>
                         </div>
@@ -135,19 +135,48 @@
                                 <label class="form-check-label">Female
                                   <input type="radio" class="form-check-input" name="optradio">
                                 </label>
-                              </div>
-                              <div class="form-check" style="display: inline;">
+                            </div>
+                            <div class="form-check" style="display: inline;">
                                 <label class="form-check-label">Male
                                   <input type="radio" class="form-check-input" name="optradio">
                                 </label>
-                              </div>
                             </div>
                         </div>
+                        <div class="form-group mt-2">
+                            <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(9, 190, 173, 1);" value="Sign Up">
+                        </div>
                     </div>
-                    <div class="modal-footerr justify-content-between pb-2">
-                        <center>
-                            <input type="submit" class="login mx-0 btn rounded-pill" value="Sign Up">
-                        </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="myModal2" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <form action="/examples/actions/confirmation.php" method="post">
+                    <div class="modal-headerr">				
+                        <h4 class="modal-title" style="color: rgba(245,127,23,1);">Sign Up</h4>
+                    </div>
+                    <div class="modal-body">				
+                        <div class="form-group">
+                            <input type="text" class="form-control" required="required" placeholder="Company Name">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="email" class="form-control" required="required" placeholder="Company Email Address">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="text" class="form-control" required="required" placeholder="Company Category">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="password" class="form-control" required="required" placeholder="Password">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="password" class="form-control" required="required" placeholder="Confirm Password">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(245,127,23,1);" value="Sign Up">
+                        </div>
                     </div>
                 </form>
             </div>

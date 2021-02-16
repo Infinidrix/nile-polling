@@ -365,7 +365,7 @@ body {
 	background: rgba(31,41,53,1);
     color: rgba(9, 190, 173, 1);
 }
-.modal-login .modal-body {
+.modal-login .modal-body{
 	padding: 30px;
     background: rgba(31,41,53,1)
 }
@@ -388,9 +388,6 @@ body {
 .modal-login .hint-text {
 	text-align: center;
 }
-input{
-    color: white;
-}
 
 .form-group input{
     background-color: rgb(71, 71, 73);
@@ -399,8 +396,5 @@ input{
     
 }
 .form-group{
-    color: white;
-}
-input::placeholder{
     color: white;
 }
