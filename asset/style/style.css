@@ -1,400 +1,361 @@
-@font-face {
-    font-family: proximanova;
-    src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: proximanovaBold;
-    src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
-}
-
-body {
-    font-family: proximanova;
-}
-
-#BRAND {
-    text-align: left;
-    font-family: proximanovaBold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3rem;
-    color: rgba(10, 190, 173, 1);
-}
-
-.login {
-    filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-    opacity: 0.988;
-    width: 8em;
-    height: 50px;
-    fill: rgba(9, 190, 173, 1);
-    background-color: rgba(9, 190, 173, 1);
-}
-
-.inp {
-    border: none;
-    width: 100%;
-    height: 50px;
-    background-color: rgba(22, 29, 38, 1);
-    filter: drop-shadow(0px 0px 59px rgba(96, 233, 255, 0.271));
-}
-
-.form-control[type=search]:focus {
-    border: none;
-    background-color: rgba(22, 29, 38, 1);
-}
-
-@media screen and (min-width:320px) {
-    #Dare {
-        opacity: 0.71;
-        line-height: 30%;
-        text-align: left;
-        font-size: 1rem;
-        color: rgba(149, 165, 198, 1);
+    @font-face {
+        font-family: proximanova;
+        src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
     }
-    #well {
-        line-height: 30%;
-        text-align: left;
-        font-size: 1.4rem;
-        color: rgba(12, 191, 174, 1);
-        padding-top: 15%;
-    }
-    #Join {
-        line-height: 30%;
-        text-align: left;
-        font-size: 1.9rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 7rem;
-        fill: rgba(9, 190, 173, 1);
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 18%;
-        margin-top: 10%;
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 10%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-        display: none;
-    }
-}
-
-@media screen and (min-width:375px) {
-    #Dare {
-        opacity: 0.71;
-        line-height: 30%;
-        font-size: 1.2rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        line-height: 30%;
-        text-align: left;
-        font-size: 1.6rem;
-        color: rgba(12, 191, 174, 1);
-        padding-top: 15%;
-    }
-    #Join {
-        line-height: 30%;
-        text-align: left;
-        font-size: 2.2rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 9rem;
-        height: 3rem;
-        fill: rgba(9, 190, 173, 1);
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 15%;
-        margin-top: 10%;
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 10%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-        display: none;
-    }
-}
-
-@media screen and (min-width:768px) {
-    #Dare {
-        opacity: 0.71;
-        font-size: 1.2rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        line-height: 30%;
-        text-align: left;
-        font-size: 1.6rem;
-        color: rgba(12, 191, 174, 1);
-        padding-top: 15%;
-    }
-    #Join {
-        line-height: 30%;
-        text-align: left;
-        font-size: 2.2rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 9rem;
-        height: 3rem;
-        fill: rgba(9, 190, 173, 1);
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 8%;
-        margin-top: 10%;
-        margin-left: 0%;
-        margin-right: 0%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-        display: block;
-    }
-}
-
-@media screen and (min-width:1024px) {
-    #Dare {
-        opacity: 0.71;
-        line-height: 30%;
-        font-size: 1.2rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        line-height: 30%;
-        text-align: left;
-        font-size: 1.6rem;
-        color: rgba(12, 191, 174, 1);
-        padding-top: 15%;
-    }
-    #Join {
-        line-height: 30%;
-        text-align: left;
-        font-size: 2.2rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 9rem;
-        height: 3rem;
-        fill: rgba(9, 190, 173, 1);
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 7%;
-        margin-top: 5%;
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 10%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-    }
-}
-
-@media screen and (min-width:1024px) {
-    #Dare {
-        opacity: 0.71;
-        font-size: 1rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        text-align: left;
-        font-size: 1.5rem;
-    }
-    #Join {
-        text-align: left;
-        font-size: 2rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 11rem;
-        height: 3rem;
-        fill: rgba(9, 190, 173, 1);
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 13%;
-        margin-top: 12%;
-        margin-right: 0%;
-        margin-bottom: 12.5%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-    }
-}
-
-@media screen and (min-width:1440px) {
-    #BRAND {
-        text-align: left;
-        font-family: proximanovaBold;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 4rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    #Dare {
-        opacity: 0.71;
-        font-size: 1rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        text-align: left;
-        font-size: 1.5rem;
-    }
-    #Join {
-        text-align: left;
-        font-size: 3rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 13rem;
-        height: 3rem;
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 13%;
-        margin-top: 10%;
-        margin-left: 0%;
-        margin-right: 0%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-        margin-top: 1%;
-    }
-    .mainImg {
-        width: 70%;
-    }
-}
-
-@media screen and (min-width:1550px) {
-    #BRAND {
-        text-align: left;
-        font-family: proximanovaBold;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 4rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    #Dare {
-        opacity: 0.71;
-        font-size: 1rem;
-        color: rgba(149, 165, 198, 1);
-    }
-    #well {
-        text-align: left;
-        font-size: 1.5rem;
-    }
-    #Join {
-        text-align: left;
-        font-size: 3rem;
-        color: rgba(10, 190, 173, 1);
-    }
-    .signB {
-        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-        opacity: 0.988;
-        width: 15rem;
-        height: 3.5rem;
-        background-color: rgba(9, 190, 173, 1);
-    }
-    #main {
-        padding-left: 5%;
-        margin-top: 10%;
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    #top {
-        margin-bottom: 0%;
-        padding-bottom: 0%;
-    }
-    .mainImg {
-        width: 80%;
-    }
-}
-
-.modal-login {
-	width: 450px;
-    margin-top: 4rem;
-}
-.modal-login .modal-content {
-	border-radius: 20px;
-	border: none;
-}
-.modal-login .modal-headerr {
-	position: relative;
-	justify-content: center;
-	background: rgba(31,41,53,1);
-    color: rgba(9, 190, 173, 1);
-}
-.modal-login .modal-body{
-	padding: 30px;
-    background: rgba(31,41,53,1)
-}
-.modal-login .modal-footerr {
-	background: rgba(31,41,53,1);
-}
-.modal-login h4 {
-    padding-top: 2rem;
-	text-align: center;
-	font-size: 30px;
-}
-.modal-login label {
-	font-weight: normal;
-	font-size: 13px;
-}
-.modal-login .form-control, .modal-login .btn {
-	min-height: 38px;
-	border-radius: 2px; 
-}
-.modal-login .hint-text {
-	text-align: center;
-}
-
-.form-group input{
-    background-color: rgb(71, 71, 73);
-    border: rgb(71, 71, 73);
-    color: white;
     
-}
-.form-group{
-    color: white;
-}
+    @font-face {
+        font-family: proximanovaBold;
+        src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
+    }
+    
+    body {
+        font-family: proximanova;
+        height: 100vh;
+        width: 100wh;
+    }
+    
+    #BRAND {
+        text-align: left;
+        font-family: proximanovaBold;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 3rem;
+        color: rgba(10, 190, 173, 1);
+    }
+    
+    .login {
+        filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+        opacity: 0.988;
+        width: 8em;
+        height: 50px;
+        fill: rgba(9, 190, 173, 1);
+        background-color: rgba(9, 190, 173, 1);
+    }
+    
+    .inp {
+        border: none;
+        width: 100%;
+        height: 50px;
+        background-color: rgba(245, 127, 23, 0.1);
+        filter: drop-shadow(0px 0px 59px rgba(96, 233, 255, 0.271));
+    }
+    
+    .form-control .inp[type=search]:focus {
+        border: none;
+        background-color: #07756A
+    }
+    
+    @media screen and (min-width:320px) {
+        #Dare {
+            opacity: 0.71;
+            line-height: 30%;
+            text-align: left;
+            font-size: 1rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            line-height: 30%;
+            text-align: left;
+            font-size: 1.4rem;
+            color: rgba(12, 191, 174, 1);
+            padding-top: 15%;
+        }
+        #Join {
+            line-height: 30%;
+            text-align: left;
+            font-size: 1.9rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 5rem;
+            fill: rgba(9, 190, 173, 1);
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 18%;
+            margin-top: 10%;
+            margin-left: 0%;
+            margin-right: 0%;
+            margin-bottom: 10%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 80%;
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width:375px) {
+        #Dare {
+            opacity: 0.71;
+            line-height: 30%;
+            font-size: 1.2rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            line-height: 30%;
+            text-align: left;
+            font-size: 1.6rem;
+            color: rgba(12, 191, 174, 1);
+            padding-top: 15%;
+        }
+        #Join {
+            line-height: 30%;
+            text-align: left;
+            font-size: 2.2rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 7rem;
+            height: 3rem;
+            fill: rgba(9, 190, 173, 1);
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 15%;
+            margin-top: 10%;
+            margin-left: 0%;
+            margin-right: 0%;
+            margin-bottom: 10%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 80%;
+            display: none;
+        }
+    }
+    
+    @media screen and (min-width:768px) {
+        #Dare {
+            opacity: 0.71;
+            font-size: 1.2rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            line-height: 30%;
+            text-align: left;
+            font-size: 1.6rem;
+            color: rgba(12, 191, 174, 1);
+            padding-top: 15%;
+        }
+        #Join {
+            line-height: 30%;
+            text-align: left;
+            font-size: 2.2rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 7rem;
+            height: 3rem;
+            fill: rgba(9, 190, 173, 1);
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 8%;
+            margin-top: 10%;
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 80%;
+            display: block;
+        }
+    }
+    
+    @media screen and (min-width:1024px) {
+        #Dare {
+            opacity: 0.71;
+            line-height: 30%;
+            font-size: 1.2rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            line-height: 30%;
+            text-align: left;
+            font-size: 1.6rem;
+            color: rgba(12, 191, 174, 1);
+            padding-top: 15%;
+        }
+        #Join {
+            line-height: 30%;
+            text-align: left;
+            font-size: 2.2rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 7rem;
+            height: 3rem;
+            fill: rgba(9, 190, 173, 1);
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 7%;
+            margin-top: 5%;
+            margin-left: 0%;
+            margin-right: 0%;
+            margin-bottom: 10%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 80%;
+        }
+    }
+    
+    @media screen and (min-width:1024px) {
+        #Dare {
+            opacity: 0.71;
+            font-size: 1rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            text-align: left;
+            font-size: 1.5rem;
+        }
+        #Join {
+            text-align: left;
+            font-size: 2rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 9rem;
+            height: 3rem;
+            fill: rgba(9, 190, 173, 1);
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 13%;
+            margin-top: 12%;
+            margin-right: 0%;
+            margin-bottom: 12.5%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 80%;
+        }
+    }
+    
+    @media screen and (min-width:1440px) {
+        #BRAND {
+            text-align: left;
+            font-family: proximanovaBold;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 4rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        #Dare {
+            opacity: 0.71;
+            font-size: 1rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            text-align: left;
+            font-size: 1.5rem;
+        }
+        #Join {
+            text-align: left;
+            font-size: 3rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 10rem;
+            height: 3rem;
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 13%;
+            margin-top: 10%;
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+            margin-top: 1%;
+        }
+        .mainImg {
+            width: 70%;
+        }
+    }
+    
+    @media screen and (min-width:1550px) {
+        #BRAND {
+            text-align: left;
+            font-family: proximanovaBold;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 4rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        #Dare {
+            opacity: 0.71;
+            font-size: 1rem;
+            color: rgba(149, 165, 198, 1);
+        }
+        #well {
+            text-align: left;
+            font-size: 1.5rem;
+        }
+        #Join {
+            text-align: left;
+            font-size: 3rem;
+            color: rgba(10, 190, 173, 1);
+        }
+        .signB {
+            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            opacity: 0.988;
+            width: 12rem;
+            height: 3.5rem;
+            background-color: rgba(9, 190, 173, 1);
+        }
+        #main {
+            padding-left: 5%;
+            margin-top: 10%;
+            margin-left: 0%;
+            margin-right: 0%;
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        #top {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+        .mainImg {
+            width: 90%;
+        }
+    }
+    
+    body {
+        font-family: proximanova;
+        height: 100vh;
+        width: 100wh;
+        overflow-y: hidden;
+    }
