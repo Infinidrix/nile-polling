@@ -42,7 +42,7 @@ body {
 }
 
 h3{
-    background-color: rgb(9, 80, 73);
+    background-color: rgb(11, 114, 104);
     color: white;
 }
 .card{
@@ -60,6 +60,35 @@ h3{
 .body-part{
     text-align: left;
 }
+
+.number-of-vote, .number-of-respds, .q-row{
+    text-align: right;
+}
+
+i{
+    color: white;
+}
+.checkbox{
+    border-radius: 50%;
+}
+.surv{
+    border: none;
+    background-color: rgb(32, 42, 56);
+}
+.surv-title{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.surv-disc{
+    font-size: 2rem;
+}
+.surv:focus{
+    border: none;
+    outline: none;
+    color: white;
+}
+
 .number-of-vote{
     text-align: right;
 }
+
