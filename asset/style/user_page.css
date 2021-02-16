@@ -1,94 +1,205 @@
-@font-face {
-    font-family: proximanova;
-    src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: proximanovaBold;
-    src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
-}
-
-body {
-    font-family: proximanova;
-}
-
-#BRAND {
-    text-align: left;
-    font-family: proximanovaBold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3rem;
-    color: rgba(10, 190, 173, 1);
-}
-
-.login {
-    filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
-    opacity: 0.988;
-    width: 4em;
-    height: 50px;
-    fill: rgba(9, 190, 173, 1);
-    background-color: rgba(9, 190, 173, 1);
-}
-.inp {
-    border: none;
-    width: 100%;
-    height: 50px;
-    background-color: rgba(22, 29, 38, 1);
-    filter: drop-shadow(0px 0px 59px rgba(51, 154, 170, 0.271));
-}
-.form-control[type=search]:focus {
-    border: none;
-    background-color: rgba(22, 29, 38, 1);
-}
-
-h3{
-    background-color: rgb(11, 114, 104);
-    color: white;
-}
-.card{
-    border-radius: 20px;
-    background-color: rgb(32, 42, 56);
-    color: white;
-    text-align: center;
-}
-.list-unstyled{
-    text-align: left;
-}
-.company_logo{
-    float: left;
-}
-.body-part{
-    text-align: left;
-}
-
-.number-of-vote, .number-of-respds, .q-row{
-    text-align: right;
-}
-
-i{
-    color: white;
-}
-.checkbox{
-    border-radius: 50%;
-}
-.surv{
-    border: none;
-    background-color: rgb(32, 42, 56);
-}
-.surv-title{
-    font-size: 3rem;
-    font-weight: bold;
-}
-.surv-disc{
-    font-size: 2rem;
-}
-.surv:focus{
-    border: none;
-    outline: none;
-    color: white;
-}
-
-.number-of-vote{
-    text-align: right;
-}
-
+            @font-face {
+                font-family: proximanova;
+                src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
+            }
+            
+            @font-face {
+                font-family: proximanovaBold;
+                src: url("/asset/font/proxima_ssv/ProximaNova-Regular.otf") format("opentype");
+            }
+            
+            body {
+                font-family: proximanova;
+            }
+            
+            .h4 {
+                font-size: small;
+                color: black;
+                font-weight: bold;
+            }
+            
+            .h6 {
+                font-size: smaller;
+                color: black;
+                font-weight: bold;
+            }
+            
+            #BRAND {
+                text-align: left;
+                font-family: proximanovaBold;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 3rem;
+                color: rgba(255, 255, 255, 1);
+            }
+            
+            .login {
+                filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+                opacity: 0.988;
+                width: 4em;
+                height: 50px;
+                fill: rgba(9, 190, 173, 1);
+                background-color: rgba(9, 190, 173, 1);
+            }
+            
+            .inp {
+                border: none;
+                width: 100%;
+                height: 50px;
+                background-color: rgba(22, 29, 38, 1);
+                filter: drop-shadow(0px 0px 59px rgba(51, 154, 170, 0.271));
+            }
+            
+            .form-control[type=search]:focus {
+                border: none;
+                background-color: rgba(22, 29, 38, 1);
+            }
+            
+            h3 {
+                color: white;
+            }
+            
+            .card {
+                border-radius: 20px;
+                background-color: rgba(255, 255, 255, 1);
+                color: white;
+                text-align: center;
+            }
+            
+            .list-unstyled {
+                text-align: left;
+                font-size: small;
+                font-weight: bold;
+                color: #2867B2;
+            }
+            
+            .company_logo {
+                float: left;
+                border-radius: 20%;
+                width: 10%;
+                height: 10%;
+            }
+            
+            .profile {
+                float: right;
+                border-radius: 20%;
+                width: 5.3em;
+            }
+            
+            .body-part {
+                text-align: left;
+            }
+            
+            .number-of-vote {
+                text-align: right;
+            }
+            
+            .stat {
+                max-width: 18rem;
+                background-color: #2867B2;
+                border: none;
+            }
+            
+            .statBody {
+                background-color: #fff;
+                border-radius: 10px 10px 10px 10px;
+            }
+            
+            .Dgroup {
+                max-width: 18rem;
+                background-color: #2867B2;
+                border: none;
+            }
+            
+            .groupBody {
+                background-color: #fff;
+                border-radius: 10px 10px 10px 10px;
+                font-size: smaller;
+                color: black;
+            }
+            
+            .groupTitle {
+                text-align: left;
+                font-size: large;
+                font-weight: bold
+            }
+            
+            .postCard {
+                color: black
+            }
+            
+            .profileName {
+                font-size: larger;
+            }
+            
+            .pro {
+                font-size: small;
+                color: gray
+            }
+            
+            .time {
+                font-size: x-small;
+                color: gray
+            }
+            
+            .agree {
+                color: rgba(9, 190, 173, 1);
+                font-size: 1.2em
+            }
+            
+            .disagree {
+                color: rgba(245, 127, 23, 1);
+                font-size: 1.2em
+            }
+            
+            .disagreeT {
+                font-family: proximanova;
+                color: rgba(245, 127, 23, 1);
+                font-size: medium
+            }
+            
+            .agreeT {
+                font-family: proximanova;
+                color: rgba(9, 190, 173, 1);
+                font-size: medium
+            }
+            
+            .list-unstyled li {
+                border-top: solid #ffe.25px;
+                border-bottom: solid #ffe 1px;
+                padding-top: 0.5em;
+            }
+            
+            .cont {
+                font-size: small;
+                color: gray;
+            }
+            
+            .dashProfile {
+                border-radius: 20%;
+            }
+            
+            .dashName {
+                font-size: medium;
+            }
+            
+            .companies {
+                max-width: 22rem;
+                background-color: #2867B2;
+                border: none;
+            }
+            
+            .scrollabel {
+                height: 800px;
+                /* or any value */
+                overflow-y: auto;
+            }
+            
+             ::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+            
+             ::-webkit-scrollbar-thumb {
+                background: #FF0000;
+            }
