@@ -136,10 +136,10 @@ function populateDB(){
   addUser({email: "se.abdulfeta.dedgba@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "gaming", "business"]});
   addUser({email: "marketer@company.org", password:"BusinessCasual", type:"company", tags: ["gaming", "economics"]});
   addUser({email: "ngo@charity.com", password:"HelpEveryone", type:"company", tags: ["education", "health"]});
-  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [1, 4]});
-  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: []});
-  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: []});
-  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 6), title:"Increase government budget for public hospitals!!", respondents: []});
+  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [0, 1, 4]});
+  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0]});
+  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: [0]});
+  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 6), title:"Increase government budget for public hospitals!!", respondents: [0]});
   addSurvey({company_id: 5, type:"survey", date: new Date(2020, 12, 6, 4), 
     title:"Would you play games developed by Ethiopians", 
     description: "How do you feel about playing games by Ethiopians for Ethiopians. We're talking about fighting through Adwa and playing yegena chewata",
@@ -159,7 +159,7 @@ function populateDB(){
       {type:"text", questions: "How was the quality of the equipment", options:[]},
       {type:"text", questions: "How was the overall experience", options:[]},
     ],
-    respondents: []
+    respondents: [0]
   });  
   addSurveyResults(4, 1, ["Agree"]);
   addSurveyResults(1, 1, ["Disagree"]);
