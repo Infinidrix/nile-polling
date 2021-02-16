@@ -8,17 +8,18 @@ export async function init(){
 
   // creates the DB stores
   db.version(1).stores({
-      // autoincrementing ID, unique email, password, email and password indexed together for login, types and an array of tags
-      users: "++id,[&email+password],type,*tags", 
-      // user_id and survey_id as a compound primary key, and an array of answers
-      survey_results: "&[user_id+survey_id],*answers",
-      // autoincrementing ID, company_id, type, and an array of questions
-      surveys: "++id,company_id,type,*questions"
+    // autoincrementing ID, unique email, password, email and password indexed together for login, types and an array of tags
+    users: "++id,[&email+password],type,*tags", 
+    // user_id and survey_id as a compound primary key, and an array of answers
+    survey_results: "&[user_id+survey_id],*answers,date",
+    // autoincrementing ID, company_id, type, date, title, an array of tags, an array of questions, and the list of users that responded to it
+    surveys: "++id,company_id,type,date,title,*tags,*questions,*respondents"
   });
 
   try {
     await db.open()
     console.debug("DB Opened succesfully");   
+    console.log(await getSurveysOfUser(4))
   } catch (e) {
     console.error("Open failed: " + e);
     throw e;
@@ -100,11 +101,38 @@ export async function addSurveyResults(user_id, survey_id, answers){
 export async function addSurvey(survey){
   try {
     let result = await db.surveys.add(survey);
-    return await db.surverys.get(result)
+    return await db.surveys.get(result)
   } catch (e){
     console.error("Adding Survey failed: " + e);
     throw e
   }
+}
+/**
+ * Gets surveys that the user hasn't responded to yet - to be used for the user homepage
+ * @param {Number} user_id - The user ID 
+ * 
+ * @returns {Array<Object>} List of survey objects
+ */
+export async function getSurveysForUser(user_id){
+    return await db.surveys.where("respondents")
+      .notEqual(user_id)
+      .distinct()
+      .reverse()
+      .sortBy("date")
+}
+
+/**
+ * Gets surveys that the user has responded - to be used for the user profile page if necessary
+ * @param {Number} user_id - The user ID 
+ * 
+ * @returns {Array<Object>} List of survey objects
+ */
+export async function getSurveysOfUser(user_id){
+  return await db.surveys.where("respondents")
+    .equals(user_id)
+    .distinct()
+    .reverse()
+    .sortBy("date")
 }
 
 /**
