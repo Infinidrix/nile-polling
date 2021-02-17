@@ -22,7 +22,6 @@ export async function init(){
   try {
     await db.open()
     console.debug("DB Opened succesfully");   
-    console.log(await getSurveysOfUser(4))
   } catch (e) {
     console.error("Open failed: " + e);
     throw e;
@@ -65,7 +64,11 @@ export async function user_login(email, password){
     .where({email, password}).first();
   
   console.debug(result ? "User Logged in" : "Login Failed");
-  return result;
+  return result || null;
+}
+
+export async function getCompany(company_id){
+  return await db.users.get(company_id)
 }
 
 /**
@@ -144,13 +147,15 @@ export async function getSurveysOfUser(user_id){
  * 
  * @returns {Array<Object>} list of survey objects
  */
-export async function getSurverysOfCompany(company_id){
+export async function getSurveysOfCompany(company_id){
   return await db.surveys.where("company_id")
     .equals(company_id)
     .distinct()
     .reverse()
     .sortBy("date")
 }
+
+
 
 /**
  * A function to test the DB
