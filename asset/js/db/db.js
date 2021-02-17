@@ -22,6 +22,7 @@ export async function init(){
   try {
     await db.open()
     console.debug("DB Opened succesfully");   
+    console.log(await getSurveysOfUser(4))
   } catch (e) {
     console.error("Open failed: " + e);
     throw e;
@@ -108,6 +109,33 @@ export async function addSurvey(survey){
     console.error("Adding Survey failed: " + e);
     throw e
   }
+}
+/**
+ * Gets surveys that the user hasn't responded to yet - to be used for the user homepage
+ * @param {Number} user_id - The user ID 
+ * 
+ * @returns {Array<Object>} List of survey objects
+ */
+export async function getSurveysForUser(user_id){
+    return await db.surveys.where("respondents")
+      .notEqual(user_id)
+      .distinct()
+      .reverse()
+      .sortBy("date")
+}
+
+/**
+ * Gets surveys that the user has responded - to be used for the user profile page if necessary
+ * @param {Number} user_id - The user ID 
+ * 
+ * @returns {Array<Object>} List of survey objects
+ */
+export async function getSurveysOfUser(user_id){
+  return await db.surveys.where("respondents")
+    .equals(user_id)
+    .distinct()
+    .reverse()
+    .sortBy("date")
 }
 
 /**
