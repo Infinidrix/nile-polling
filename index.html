@@ -13,7 +13,7 @@
 
 </head>
 
-<body style=" background-color: rgb(255, 255, 255)">
+<body style=" background-color: rgb(255, 255, 255);height:auto;">
 
 
 
@@ -32,15 +32,31 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav ms-auto  ">
-                        <li id="full" class="nav-item mx-o p-2">
-                            <input type="email" class="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <ul class="list-unstyled ms-auto">
+                        <li>
+                            <ul class="navbar-nav ms-auto  ">
+                                <li id="full" class="nav-item mx-o p-3">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </li>
+                                <li id="full" class="nav-item mx-o p-2">
+                                    <input type="email" class="form-control inp" placeholder="Usename" id="user" aria-describedby="emailHelp">
+                                </li>
+                                <li id="full" class="nav-item mx-o p-2">
+                                    <input type="password" class="form-control inp" id="pass" placeholder="Password" aria-describedby="emailHelp">
+                                </li>
+                                <li id="full" class="nav-item mx-0 p-2">
+                                    <button class=" login mx-0 btn rounded-pill " type="button ">Search</button>
+                                </li>
+                            </ul>
                         </li>
-                        <li id="full" class="nav-item mx-o p-2">
-                            <input type="email" class="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </li>
-                        <li id="full" class="nav-item mx-0 p-2">
-                            <button class=" login mx-0 btn rounded-pill " type="button ">Search</button>
+                        <li>
+                            <p id="showError" class="text-left ms-5">
+                                Wrong Username or Password
+
+
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -134,7 +150,7 @@
                         <div class="form-group mt-2">
                             <div class="form-check" style="display: inline;">
                                 <label class="form-check-label">Female
-                                  <input type="radio" class="form-check-input" name="optradio">
+                                  <input type="radio" class="form-check-input"  name="optradio">
                                 </label>
                             </div>
                             <div class="form-check" style="display: inline;">
