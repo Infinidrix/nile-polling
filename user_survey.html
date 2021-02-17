@@ -13,29 +13,31 @@
 
 </head>
 
-<body style="background-color:  rgba(22,29,38,1);">
+<body style="background-color: #E5E5EA">
 
-<!--======================================================*****************************=============================================*******************================-->    
+    <!--======================================================*****************************=============================================*******************================-->
 
-    <div class="container-fluid p-0 m-0 text-center" style="background-color: rgba(31,41,53,1);">
-        <nav class="navbar navbar-expand-lg navbar-light  p-3">
-            <div class="container" style="background-color: rgba(31,41,53,1);">
-                <a class="navbar-brand mx-0" id="brand" href="index.html">
+    <div class="container-fluid p-0 m-0 text-center fixed main-back ">
+        <nav class=" navbar navbar-expand-lg navbar-light p-3 ">
+            <div class="container main-back ">
+                <a class="navbar-brand mx-0 " id="brand " href="index.html ">
                     <div id="BRAND">
                         <span>Nile Polling</span>
                     </div>
                 </a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler " type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                    <span class="navbar-toggler-icon "></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto  ">
-                        <li id="full" class="nav-item mx-0 p-2">
-                            <button class=" login mx-0 btn rounded-pill " type="button ">Submit</button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent ">
+                    <ul class="navbar-nav ms-auto me-4">
+                        <li id="full " class="nav-item mx-0 p-2">
+                            <button class=" btn btn-primary rounded-pill border-0 mt-4" style="background-color: rgba(245, 127, 23, 0.9);
+                            filter: drop-shadow(0px 0px 59px rgba(96, 233, 255, 0.271))" style="height:3em;width:6em" type="button ">Submit</button>
+
                         </li>
-                        <li id="full" class="nav-item mx-0 p-2">
-                            <a href="#">
-                                <img class="login rounded-pill" src="https://mpng.subpng.com/20180404/sqe/kisspng-computer-icons-user-profile-clip-art-big-5ac5283827d286.2570974715228703281631.jpg" alt="profile image">
+                        <li id="full " class="nav-item">
+                            <a href="# ">
+                                <img class="profile img-fluid ms-4" src="/asset/image/maale.png" alt="profile image ">
                             </a>
                         </li>
                     </ul>
@@ -44,120 +46,76 @@
         </nav>
     </div>
 
- <!--======================================================*****************************=============================================*******************================-->   
-    
-    <div class="container-fluid mt-3">
-        <div class="row w-100">
-            <div class="col-md-1">
-            </div>
 
-            <div class="col-md-10">
-                <div class="card body-part">
-                    <div class="container-fluid">
-                        <h1 class="my-2 mx-3">Survey Title</h1>
-                        <p>short description of the survey</p>
-                        <p>short description of the survey short description of the survey</p>
-                    </div>
-                    <div class="container-fluid pt-2">
-                    </div>
+    <!--======================================================*****************************=============================================*******************================-->
+
+    <div class="container px-5 mt-3 ">
+        <div class="row  mx-5 px-2	">
+
+            <!--======================================================*****************************=============================================*******************================-->
+
+            <div class="col-md-12 scrollabel">
+                <div class="px-4 card py-4 body-part postCard polling mb-3 	">
+                    <h1 class="my-2 mx-3">Survey Title</h1>
+                    <p class="ps-3" style="font-size: 1.3em; color:gray">short description of the survey</p>
                 </div>
-                <div class="card body-part mt-3">
-                    <div class="container-fluid p-4">
-                        <h4 class="question">What.....?</h4>
-                        <textarea type="text" class="form-control" id="answer" placeholder="Enter your answer...."></textarea>
-                    </div>
+                <div class="px-5 py-5 card body-part postCard polling mb-3 	">
+                    <h4 class="question pb-4 ">What.....?</h4>
+                    <textarea type="text" class="form-control " rows="3" id="answer" placeholder="Enter your answer...."></textarea>
+
                 </div>
-                <div class="card body-part mt-3">
-                    <div class="container-fluid p-4">
+                <div class="px-4 py-5 card body-part postCard polling mb-3 	">
+                    <div class="container-fluid " style="color: black;">
                         <h4 class="question">What.....?</h4>
-                        <div class="row">
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
+                        <div class="form-check">
+                            <div class="row py-3">
+                                <div class="col-md-6">
+                                    <input class="form-check-input pt-1 " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label px-2 border border-1 rounded-pill" for="flexRadioDefault1"> Answer</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-check-input pt-1 " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label px-2 border border-1 rounded-pill" for="flexRadioDefault1"> Answer</label>
+                                </div>
+
                             </div>
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
+                            <div class="row py-3">
+                                <div class="col-md-6">
+                                    <input class="form-check-input pt-1 " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label px-2 border border-1 rounded-pill" for="flexRadioDefault1"> Answer</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-check-input pt-1 " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label px-2 border border-1 rounded-pill" for="flexRadioDefault1"> Answer</label>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="row">
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                        </div>
+
+
                     </div>
+
                 </div>
 
-                <div class="card body-part mt-3">
-                    <div class="container-fluid p-4">
-                        <h4 class="question">What.....?</h4>
-                        <textarea type="text" class="form-control" id="answer" placeholder="Enter your question"></textarea>
-                    </div>
-                </div>
-                <div class="card body-part mt-3">
-                    <div class="container-fluid p-4">
-                        <h4 class="question">What.....?</h4>
-                        <div class="row">
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                            <div class="col-2">
-                                <input class="checkbox checkbox-circle" id="chkInfo" type="checkbox" />
-                                <span class="answer">
-                                    Answer1
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+
+
+
+
+
+                <!--======================================================*****************************=============================================*******************================-->
+
+
+
+
             </div>
         </div>
-    </div>
 
 
 
-    
-    <div class="container-fluid m-0 p-0">
-        <img src="./asset/image/Shape@2x.png" class="img-fluid p-0 m-0" alt="">
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
 </body>
 
 </html>
