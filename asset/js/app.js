@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     async function login() {
         userName = userNameInput.value
         let pass = passInput.value
-        console.log("jiij");
         let user = await user_login(userName, pass)
         if (user) {
             spinnerLogin.style.display = "block"
