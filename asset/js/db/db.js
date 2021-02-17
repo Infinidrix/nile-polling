@@ -5,7 +5,7 @@ let db;
  */
 export async function init(){
   db = new Dexie("Survey And Polling");
-
+  console.log("GOT HERE");
   // creates the DB stores
   db.version(1).stores({
       // autoincrementing ID, unique email, password, email and password indexed together for login, types and an array of tags
@@ -133,6 +133,20 @@ export async function getSurveysForUser(user_id){
 export async function getSurveysOfUser(user_id){
   return await db.surveys.where("respondents")
     .equals(user_id)
+    .distinct()
+    .reverse()
+    .sortBy("date")
+}
+
+/**
+ * Gets surveys that the company has created
+ * @param {Int} company_id - The ID of the company
+ * 
+ * @returns {Array<Object>} list of survey objects
+ */
+export async function getSurverysOfCompany(company_id){
+  return await db.surveys.where("company_id")
+    .equals(company_id)
     .distinct()
     .reverse()
     .sortBy("date")
