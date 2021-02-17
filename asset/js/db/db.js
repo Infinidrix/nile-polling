@@ -44,7 +44,7 @@ export async function addUser(user){
     // checks if the error is because of the email
     if (e.name === "ConstraintError"){
       console.error("You're using a duplicate email");
-      throw new Error("You're using a duplicate email");
+      return null;
     } else {
       console.error("Adding User failed: " + e);
       throw e
