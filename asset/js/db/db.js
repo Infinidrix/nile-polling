@@ -168,7 +168,15 @@ export async function getSurveysOfCompany(company_id){
     .sortBy("date");
 }
 
-
+/**
+ * 
+ * @param {Number} survey_id 
+ * 
+ * @returns {Object} the survey object with that ID
+ */
+export async function getSurvey(survey_id){
+  return await db.survey.get(survey_id)
+}
 
 /**
  * A function to test the DB
