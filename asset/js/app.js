@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         let user = await user_login(userName, pass)
         if (user) {
             spinnerLogin.style.display = "block"
+            localStorage.setItem("user", JSON.stringify(user));
+            location.href = "user_page.html";
         } else {
             passInput.style.border = "solid 1px"
     
