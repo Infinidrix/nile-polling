@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         }
     }
 
-    function signUpPerson(e) {
+   async function signUpPerson(e) {
         if (e.target.id === "signupBtnP") {
             let firstName = firstName.value;
             let lastName = lastName.value;
@@ -64,14 +64,14 @@ document.addEventListener("DOMContentLoaded", async() => {
             let pass = personPass.value;
             let email = personEmail.value;
             let gender = genderReveal();
-            user = addUser({
+            user = await addUser({
                 email: email,
                 password: pass,
                 type: "user",
                 tags: [bDate, gender, fName, ln]
             })
             if (user) {
-                localStorage.setItem("user", user);
+                localStorage.setItem("user", JSON.stringfy(user));
                 location.href = "user.html";
 
             } else {
@@ -83,14 +83,14 @@ document.addEventListener("DOMContentLoaded", async() => {
             let catgory = catgory.value
             let emailCompany = emailCompany.value
             let companyName = companyName.value
-            user = addUser({
+            user = await addUser({
                 email: emailCompany,
                 password: companyPass,
                 type: "company",
                 tags: [catgory]
             })
             if (user) {
-                localStorage.setItem("user", user);
+                localStorage.setItem("user", JSON.stringfy(user));
                 location.href = "user.html";
             } else {}
         }
