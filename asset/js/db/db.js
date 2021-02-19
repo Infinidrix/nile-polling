@@ -5,7 +5,6 @@ let db;
  */
 export async function init(){
   db = new Dexie("Survey And Polling");
-  console.log("GOT HERE");
   // creates the DB stores
   db.version(1).stores({
       // autoincrementing ID, unique email, password, email and password indexed together for login, types and an array of tags

@@ -1,7 +1,6 @@
-import { checkUserLogin } from "./main.js"
 import { getSurveysForUser, getCompany, addSurveyResults } from "./db/db.js"
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DBInitalized", async () => {
     let surveyList = await getSurveysForUser(user.id);
 
     const pollFragment = document.querySelector("#poll-card")
