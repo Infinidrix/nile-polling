@@ -5,7 +5,7 @@ let db;
  */
 export async function init(){
   db = new Dexie("Survey And Polling");
-
+  console.log("GOT HERE");
   // creates the DB stores
   db.version(1).stores({
       // autoincrementing ID, unique email, password, email and password indexed together for login, types and an array of tags
@@ -22,7 +22,6 @@ export async function init(){
   try {
     await db.open()
     console.debug("DB Opened succesfully");   
-    console.log(await getSurveysOfUser(4))
   } catch (e) {
     console.error("Open failed: " + e);
     throw e;
@@ -31,7 +30,7 @@ export async function init(){
 
 /**
  * Adds a user to the DB
- * @param {Object} user - the user object in format: {email: "", password: "", type: "user" or "company", tags: []}
+ * @param {Object} user - the user object in format: {email: "", password: "", type: "user" or "company", tags: [], properties: {}}
  * 
  * @returns {Object} the saved user object
  * 
@@ -45,7 +44,7 @@ export async function addUser(user){
     // checks if the error is because of the email
     if (e.name === "ConstraintError"){
       console.error("You're using a duplicate email");
-      throw new Error("You're using a duplicate email");
+      return null;
     } else {
       console.error("Adding User failed: " + e);
       throw e
@@ -65,7 +64,17 @@ export async function user_login(email, password){
     .where({email, password}).first();
   
   console.debug(result ? "User Logged in" : "Login Failed");
-  return result;
+  return result || null;
+}
+
+export async function getCompany(company_id){
+  return await db.users.get(company_id)
+}
+
+export async function searchSurveys(query){
+  return await db.survey.where('title')
+    .startsWithIgnoreCase(query)
+    .toArray()
 }
 
 /**
@@ -83,6 +92,10 @@ export async function addSurveyResults(user_id, survey_id, answers){
   try {
     // add the survey results
     let result = await db.survey_results.add(obj);
+    let survey = await db.surveys.get(survey_id);
+    survey.respondents.push(user_id);
+    await db.surveys.update(survey_id, survey);
+    console.log(await db.surveys.get(survey_id));
     return await db.survey_results.get(result);
   } catch (e){
     // if the error is because of a duplicate primary key then it will update it
@@ -90,7 +103,7 @@ export async function addSurveyResults(user_id, survey_id, answers){
       let result = await db.survey_results.update({user_id, survey_id}, obj);
       return await db.survey_results.get({user_id, survey_id});
     } else {
-      console.error("Adding Survey failed: " + e);
+      console.warn("Adding Survey failed: " + e);
       throw e
     }
   }
@@ -120,8 +133,11 @@ export async function getSurveysForUser(user_id){
     return await db.surveys.where("respondents")
       .notEqual(user_id)
       .distinct()
+      .filter(function (survey) {
+        return !survey.respondents.includes(user_id);
+      })
       .reverse()
-      .sortBy("date")
+      .sortBy("date");
 }
 
 /**
@@ -135,7 +151,31 @@ export async function getSurveysOfUser(user_id){
     .equals(user_id)
     .distinct()
     .reverse()
-    .sortBy("date")
+    .sortBy("date");
+}
+
+/**
+ * Gets surveys that the company has created
+ * @param {Int} company_id - The ID of the company
+ * 
+ * @returns {Array<Object>} list of survey objects
+ */
+export async function getSurveysOfCompany(company_id){
+  return await db.surveys.where("company_id")
+    .equals(company_id)
+    .distinct()
+    .reverse()
+    .sortBy("date");
+}
+
+/**
+ * 
+ * @param {Number} survey_id 
+ * 
+ * @returns {Object} the survey object with that ID
+ */
+export async function getSurvey(survey_id){
+  return await db.survey.get(survey_id)
 }
 
 /**
@@ -157,27 +197,27 @@ export async function testDB(){
   await user_login("se.biruk.solomon@gmail.com", "amazingPassword");
 }
 
-function populateDB(){
-  addUser({email: "se.biruk.solomon@gmail.com", password:"LifeIsShort", type:"user", tags: ["education", "economics"]});
-  addUser({email: "se.hanan.miftah@gmail.com", password:"SuperSecurePassword", type:"user", tags: ["education", "health"]});
-  addUser({email: "se.natneam.mesele@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "phliosophy"]});
-  addUser({email: "se.abdulfeta.dedgba@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "gaming", "business"]});
-  addUser({email: "marketer@company.org", password:"BusinessCasual", type:"company", tags: ["gaming", "economics"]});
-  addUser({email: "ngo@charity.com", password:"HelpEveryone", type:"company", tags: ["education", "health"]});
-  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [0, 1, 4]});
-  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0]});
-  addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: [0]});
-  addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 6), title:"Increase government budget for public hospitals!!", respondents: [0]});
-  addSurvey({company_id: 5, type:"survey", date: new Date(2020, 12, 6, 4), 
+async function populateDB(){
+  await addUser({email: "se.biruk.solomon@gmail.com", password:"LifeIsShort", type:"user", tags: ["education", "economics"]});
+  await addUser({email: "se.hanan.miftah@gmail.com", password:"SuperSecurePassword", type:"user", tags: ["education", "health"]});
+  await addUser({email: "se.natneam.mesele@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "phliosophy"]});
+  await addUser({email: "se.abdulfeta.dedgba@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "gaming", "business"]});
+  await addUser({email: "marketer@company.org", password:"BusinessCasual", type:"company", tags: ["gaming", "economics"]});
+  await addUser({email: "ngo@charity.com", password:"HelpEveryone", type:"company", tags: ["education", "health"]});
+  await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [0]});
+  await addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0]});
+  await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: [0]});
+  await addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 6), title:"Increase government budget for public hospitals!!", respondents: [0]});
+  await addSurvey({company_id: 5, type:"survey", date: new Date(2020, 12, 6, 4), 
     title:"Would you play games developed by Ethiopians", 
     description: "How do you feel about playing games by Ethiopians for Ethiopians. We're talking about fighting through Adwa and playing yegena chewata",
     questions:[
       {type:"option", questions: "Have you tried Ethiopian games before", options:["Yes", "No"]},
       {type:"text", questions: "What do you feel about the quality of games that Ethiopian publishers can provide", options:[]},
     ],
-    respondents: [4]
+    respondents: [0]
   });
-  addSurvey({company_id: 6, type:"survey", date: new Date(2020, 12, 6, 4), 
+  await addSurvey({company_id: 6, type:"survey", date: new Date(2020, 12, 6, 4), 
     title:"What's the health coverage like in Ethiopia", 
     description: "We want to know about any difficulties or good results you've had from public hospitals in Ethiopia",
     questions:[
@@ -189,7 +229,7 @@ function populateDB(){
     ],
     respondents: [0]
   });  
-  addSurveyResults(4, 1, ["Agree"]);
-  addSurveyResults(1, 1, ["Disagree"]);
-  addSurveyResults(4, 5, [0, "I don't feel like it's in a good place now but there's a lot of room to improve and I'd be glad to play and test them out."]);
+  await addSurveyResults(4, 1, ["Agree"]);
+  await addSurveyResults(1, 1, ["Disagree"]);
+  await addSurveyResults(4, 5, [0, "I don't feel like it's in a good place now but there's a lot of room to improve and I'd be glad to play and test them out."]);
 }

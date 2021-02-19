@@ -67,7 +67,7 @@
             color: rgba(10, 190, 173, 1);
         }
         .signB {
-            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            font-size: 0.4em;
             opacity: 0.988;
             width: 5rem;
             fill: rgba(9, 190, 173, 1);
@@ -111,6 +111,7 @@
             color: rgba(10, 190, 173, 1);
         }
         .signB {
+            font-size: 0.5em;
             filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
             opacity: 0.988;
             width: 7rem;
@@ -155,7 +156,7 @@
             color: rgba(10, 190, 173, 1);
         }
         .signB {
-            filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
+            font-size: 0.6em;
             opacity: 0.988;
             width: 7rem;
             height: 3rem;
@@ -171,13 +172,14 @@
         #top {
             margin-bottom: 0%;
             padding-bottom: 0%;
+            margin-top: 10%;
         }
         .mainImg {
             width: 80%;
             display: block;
         }
     }
-    
+    /*     
     @media screen and (min-width:1024px) {
         #Dare {
             opacity: 0.71;
@@ -199,6 +201,7 @@
             color: rgba(10, 190, 173, 1);
         }
         .signB {
+            font-size: 0.8em;
             filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
             opacity: 0.988;
             width: 7rem;
@@ -220,7 +223,7 @@
         .mainImg {
             width: 80%;
         }
-    }
+    } */
     
     @media screen and (min-width:1024px) {
         #Dare {
@@ -299,7 +302,7 @@
         #top {
             margin-bottom: 0%;
             padding-bottom: 0%;
-            margin-top: 1%;
+            margin-top: 0%;
         }
         .mainImg {
             width: 70%;
@@ -330,11 +333,13 @@
             color: rgba(10, 190, 173, 1);
         }
         .signB {
+            font-size: 1em;
             filter: drop-shadow(0px 16px 29px rgba(11, 190, 173, 0.412));
             opacity: 0.988;
             width: 12rem;
             height: 3.5rem;
             background-color: rgba(9, 190, 173, 1);
+            border: none;
         }
         #main {
             padding-left: 5%;
@@ -357,5 +362,42 @@
         font-family: proximanova;
         height: 100vh;
         width: 100wh;
-        overflow-y: hidden;
+    }
+    
+    #showError {
+        text-align: left;
+        color: #FF0000;
+        opacity: 0;
+    }
+    
+    .spinner-border {
+        display: none;
+    }
+    
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    
+    .signB:visited,
+    .signB:link {
+        background-color: rgba(9, 190, 173, 1);
+        border: none;
+    }
+    
+    .signB:active,
+    .signB:hover {
+        background-color: rgba(9, 190, 173, 1);
+        border: none;
+    }
+    
+    .signB {
+        background-color: rgba(9, 190, 173, 1);
+        border: none;
     }

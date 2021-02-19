@@ -229,6 +229,24 @@
         color: black
     }
     
+    #drop {
+        background-color: #07756A;
+        border: none;
+        font-size: 1.7em;
+    }
+    
+    .dropdown-toggle::after {
+        display: none;
+    }
+    
     .main-back {
         background-color: #07756A;
+    }
+    
+    #surveyC {
+        color: #07756A;
+    }
+    
+    .percent {
+        transform: scale(0.8);
     }

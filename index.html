@@ -13,7 +13,7 @@
 
 </head>
 
-<body style=" background-color: rgb(255, 255, 255)">
+<body style=" background-color: rgb(255, 255, 255);height:auto;">
 
 
 
@@ -32,15 +32,31 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav ms-auto  ">
-                        <li id="full" class="nav-item mx-o p-2">
-                            <input type="email" class="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <ul class="list-unstyled ms-auto">
+                        <li>
+                            <ul class="navbar-nav ms-auto  ">
+                                <li id="full" class="nav-item mx-o p-3">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </li>
+                                <li id="full" class="nav-item mx-o p-2">
+                                    <input type="email" class="form-control inp" placeholder="Usename" id="user" aria-describedby="emailHelp">
+                                </li>
+                                <li id="full" class="nav-item mx-o p-2">
+                                    <input type="password" class="form-control inp" id="pass" placeholder="Password" aria-describedby="emailHelp">
+                                </li>
+                                <li id="full" class="nav-item mx-0 p-2">
+                                    <button class=" login mx-0 btn rounded-pill " type="button ">Search</button>
+                                </li>
+                            </ul>
                         </li>
-                        <li id="full" class="nav-item mx-o p-2">
-                            <input type="email" class="form-control inp" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </li>
-                        <li id="full" class="nav-item mx-0 p-2">
-                            <button class=" login mx-0 btn rounded-pill " type="button ">Search</button>
+                        <li>
+                            <p id="showError" class="text-left ms-5">
+                                Wrong Username or Password
+
+
+                            </p>
                         </li>
                     </ul>
                 </div>
@@ -84,10 +100,14 @@
 
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="#myModal" class="trigger-btn" data-toggle="modal">
-                                <button class=" signB mx-0 btn  me-3  rounded-pill" type=" button ">Sign Up as Person</button>
+                                <button type="button" class="signB mx-0 btn  me-3  rounded-pill btn-primary" style=" background-color: rgba(9, 190, 173, 1);" data-bs-toggle="modal" data-bs-target="#person">
+                                    Sign Up as Person
+                                  </button>
                             </a>
                             <a href="#myModal2" class="trigger-btn" data-toggle="modal">
-                                <button class=" signB mx-0 btn rounded-pill " style="background-color:rgba(245,127,23,1); filter: drop-shadow(0px 16px 28px rgba(245, 127, 23, 0.239));" type="button ">Sign Up as Company</button>
+                                <button type="button" class="signB mx-0 btn  me-3  rounded-pill btn-primary" style="background-color:rgba(245,127,23,1); filter: drop-shadow(0px 16px 28px rgba(245, 127, 23, 0.239));" data-bs-toggle="modal" data-bs-target="#company">
+                                    Sign Up as Person
+                                  </button>
                             </a>
                         </div>
                     </div>
@@ -100,51 +120,83 @@
         </div>
 
     </div>
-    <div class="container-fluid m-0 p-0">
+    <div class="container-fluid m-0 p-0 footer">
         <img src="./asset/image/path.png" class="img-fluid p-0 m-0" alt="">
     </div>
 
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
+
+    <div class="modal fade " style="border-radius:10% ;" id="person" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-md-5">
+                <form action="/examples/actions/confirmation.php" method="post" id="personSignup"></form>
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgba(9, 190, 173, 1)">Sign Up As Person</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group my-md-3">
+                        <input type="text" class="form-control" required="required" placeholder="First Name" id="fName" name="fName">
+                    </div>
+                    <div class="form-group mt-2 my-md-3">
+                        <input type="text" class="form-control" required="required" placeholder="Last Name" id="lanme" name="lanme">
+                    </div>
+                    <div class="form-group mt-2 my-md-3">
+                        <input type="email" class="form-control" required="required" placeholder="Email Address" id="personGmail" name="gmail">
+                    </div>
+                    <div class="form-group mt-2 my-md-3">
+                        <input type="password" class="form-control" required="required" placeholder="Password" id="personPass" name="pass">
+                    </div>
+                    <div class="form-group mt-2 my-md-3">
+                        <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="personConPass" name="Pass">
+                    </div>
+                    <div class="form-group mt-2 my-md-3">
+                        <label style="color: black;">Date of Birth</label><br>
+                        <input type="date" class="form-control" required="required" id="date" name="date">
+                    </div>
+                    <div class="form-group my-md-3 ">
+                        <div class="form-check" style="display: inline;">
+                            <label class="form-check-label">Female
+                                  <input type="radio" class="rad form-check-input " id="female" value="Female"  name="gender">
+                                </label>
+                        </div>
+                        <div class="form-check" style="display: inline;">
+                            <label class="form-check-label">Male
+                                  <input type="radio" class=" rad form-check-input" id="male"  value="Male" name="gender">
+                                </label>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="submit" class="login mx-0 btn w-100" id="signupBtnP" style="background-color: rgba(9, 190, 173, 1);" value="Sign Up">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-md-5">
                 <form action="/examples/actions/confirmation.php" method="post">
-                    <div class="modal-headerr">
-                        <h4 class="modal-title">Sign Up</h4>
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: rgba(245,127,23,1);">Sign Up As Company</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="First Name">
+                        <div class="form-group my-md-3 ">
+                            <input type="text" class="form-control" required="required" placeholder="Company Name" id="cName">
                         </div>
-                        <div class="form-group mt-2">
-                            <input type="text" class="form-control" required="required" placeholder="Last Name">
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="email" class="form-control" required="required" placeholder="Company Email Address" id="emailCom">
                         </div>
-                        <div class="form-group mt-2">
-                            <input type="email" class="form-control" required="required" placeholder="Email Address">
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="text" class="form-control" required="required" placeholder="Company Category" id="catgory">
                         </div>
-                        <div class="form-group mt-2">
-                            <input type="password" class="form-control" required="required" placeholder="Password">
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="password" class="form-control" required="required" placeholder="Password" id="cPass">
                         </div>
-                        <div class="form-group mt-2">
-                            <input type="password" class="form-control" required="required" placeholder="Confirm Password">
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="conCamPass">
                         </div>
-                        <div class="form-group mt-2">
-                            <label style="color: white;">Date of Birth</label><br>
-                            <input type="date" class="form-control" required="required">
-                        </div>
-                        <div class="form-group mt-2">
-                            <div class="form-check" style="display: inline;">
-                                <label class="form-check-label">Female
-                                  <input type="radio" class="form-check-input" name="optradio">
-                                </label>
-                            </div>
-                            <div class="form-check" style="display: inline;">
-                                <label class="form-check-label">Male
-                                  <input type="radio" class="form-check-input" name="optradio">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(9, 190, 173, 1);" value="Sign Up">
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(245,127,23,1);" id="signUpBntnComp" value="Sign Up">
                         </div>
                     </div>
                 </form>
@@ -152,42 +204,14 @@
         </div>
     </div>
 
-    <div id="myModal2" class="modal fade">
-        <div class="modal-dialog modal-login">
-            <div class="modal-content">
-                <form action="/examples/actions/confirmation.php" method="post">
-                    <div class="modal-headerr">
-                        <h4 class="modal-title" style="color: rgba(245,127,23,1);">Sign Up</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Company Name">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="email" class="form-control" required="required" placeholder="Company Email Address">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="text" class="form-control" required="required" placeholder="Company Category">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="password" class="form-control" required="required" placeholder="Password">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="password" class="form-control" required="required" placeholder="Confirm Password">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(245,127,23,1);" value="Sign Up">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script type="module" src="asset/js/app.js"></script>
 </body>
 
