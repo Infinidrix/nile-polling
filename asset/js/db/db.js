@@ -175,7 +175,7 @@ export async function getSurveysOfCompany(company_id){
  * @returns {Object} the survey object with that ID
  */
 export async function getSurvey(survey_id){
-  return await db.survey.get(survey_id)
+  return await db.surveys.get(survey_id)
 }
 
 /**

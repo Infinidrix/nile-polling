@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const respondent_message = (respondents == 0) ? "No users have responded" : (respondents == 1) ? "1 user has responded" : `${respondents} users have responded`;
         const date_message = `${Math.round((new Date().getTime() - survey.date.getTime()) / (1000 * 3600 * 24))} days ago`
         let instance;
-        if (survey.type == "poll"){
-            instance = document.importNode(pollFragment.content, true);
-            // Add relevant content to the template
-            instance.querySelector('#company-name').textContent = company.email;
-            instance.querySelector('#poll-date').textContent = date_message;
-            instance.querySelector('#poll-question').textContent = survey.title;
+        instance = document.importNode((survey.type === "poll") ? pollFragment.content : surveyFragment.content, true);
+        // Add relevant content to the template
+        instance.querySelector('#company-name').textContent = company.email;
+        instance.querySelector('#poll-date').textContent = date_message;
+        instance.querySelector('#poll-question').textContent = survey.title;
+        if (survey.type === "poll"){
             instance.querySelector('#number-of-votes').textContent = respondent_message;
             const agreeButton = instance.querySelector('#agree-button')
             agreeButton.setAttribute("data-id", survey.id)
@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             disagreeButton.onclick = respondToPoll;
             
             // Append the instance ot the DOM
-            document.getElementById('survey-content').appendChild(instance);
-        }      
+        } else if (survey.type === "survey"){
+            instance.querySelector('a').href = `user_survey.html?id=${survey.id}`;
+        }   
+        document.getElementById('survey-content').appendChild(instance);
     });
 })
 

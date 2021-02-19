@@ -1,8 +1,9 @@
 import { init } from "./db/db.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     checkUserLogin();
-    init();
+    await init();
+    document.dispatchEvent(new Event("DBInitalized"));
 });
 
 
