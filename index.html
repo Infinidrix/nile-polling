@@ -100,7 +100,7 @@
 
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="#myModal" class="trigger-btn" data-toggle="modal">
-                                <button type="button" class="signB mx-0 btn  me-3  rounded-pill btn-primary" data-bs-toggle="modal" data-bs-target="#person">
+                                <button type="button" class="signB mx-0 btn  me-3  rounded-pill btn-primary" style=" background-color: rgba(9, 190, 173, 1);" data-bs-toggle="modal" data-bs-target="#person">
                                     Sign Up as Person
                                   </button>
                             </a>
@@ -120,39 +120,39 @@
         </div>
 
     </div>
-    <div class="container-fluid m-0 p-0">
+    <div class="container-fluid m-0 p-0 footer">
         <img src="./asset/image/path.png" class="img-fluid p-0 m-0" alt="">
     </div>
 
 
-    <div class="modal fade " id="person" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " style="border-radius:10% ;" id="person" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content p-md-5">
                 <form action="/examples/actions/confirmation.php" method="post" id="personSignup"></form>
-                <div class="modal-headerr">
-                    <h4 class="modal-title">Sign Up</h4>
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgba(9, 190, 173, 1)">Sign Up As Person</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group my-md-3">
                         <input type="text" class="form-control" required="required" placeholder="First Name" id="fName" name="fName">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 my-md-3">
                         <input type="text" class="form-control" required="required" placeholder="Last Name" id="lanme" name="lanme">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 my-md-3">
                         <input type="email" class="form-control" required="required" placeholder="Email Address" id="personGmail" name="gmail">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 my-md-3">
                         <input type="password" class="form-control" required="required" placeholder="Password" id="personPass" name="pass">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 my-md-3">
                         <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="personConPass" name="Pass">
                     </div>
-                    <div class="form-group mt-2">
-                        <label style="color: white;">Date of Birth</label><br>
+                    <div class="form-group mt-2 my-md-3">
+                        <label style="color: black;">Date of Birth</label><br>
                         <input type="date" class="form-control" required="required" id="date" name="date">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group my-md-3 ">
                         <div class="form-check" style="display: inline;">
                             <label class="form-check-label">Female
                                   <input type="radio" class="rad form-check-input " id="female" value="Female"  name="gender">
@@ -174,28 +174,28 @@
     </div>
     <div class="modal fade" id="company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content p-md-5">
                 <form action="/examples/actions/confirmation.php" method="post">
-                    <div class="modal-headerr">
-                        <h4 class="modal-title" style="color: rgba(245,127,23,1);">Sign Up</h4>
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: rgba(245,127,23,1);">Sign Up As Company</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
+                        <div class="form-group my-md-3 ">
                             <input type="text" class="form-control" required="required" placeholder="Company Name" id="cName">
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group my-md-3 mt-2">
                             <input type="email" class="form-control" required="required" placeholder="Company Email Address" id="emailCom">
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group my-md-3 mt-2">
                             <input type="text" class="form-control" required="required" placeholder="Company Category" id="catgory">
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group my-md-3 mt-2">
                             <input type="password" class="form-control" required="required" placeholder="Password" id="cPass">
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group my-md-3 mt-2">
                             <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="conCamPass">
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group my-md-3 mt-2">
                             <input type="submit" class="login mx-0 btn w-100" style="background-color: rgba(245,127,23,1);" id="signUpBntnComp" value="Sign Up">
                         </div>
                     </div>
@@ -212,7 +212,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <!-- <script type="module" src="asset/js/app.js"></script> -->
+    <script type="module" src="asset/js/app.js"></script>
 </body>
 
 </html>
