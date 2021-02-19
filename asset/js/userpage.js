@@ -27,8 +27,6 @@ document.addEventListener("DBInitalized", async () => {
             disagreeButton.setAttribute("data-id", survey.id)
             disagreeButton.setAttribute("data-action", "Disagree")
             disagreeButton.onclick = respondToPoll;
-            
-            // Append the instance ot the DOM
         } else if (survey.type === "survey"){
             instance.querySelector('a').href = `user_survey.html?id=${survey.id}`;
         }   
