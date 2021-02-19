@@ -1,5 +1,5 @@
 import { checkUserLogin } from "./main.js"
-import { getSurveysForUser, getCompany } from "./db/db.js"
+import { getSurveysForUser, getCompany, addSurveyResults } from "./db/db.js"
 
 let user;
 document.addEventListener("DOMContentLoaded", async () => {
@@ -22,9 +22,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             instance.querySelector('#poll-date').textContent = date_message;
             instance.querySelector('#poll-question').textContent = survey.title;
             instance.querySelector('#number-of-votes').textContent = respondent_message;
+            const agreeButton = instance.querySelector('#agree-button')
+            agreeButton.setAttribute("data-id", survey.id)
+            agreeButton.setAttribute("data-action", "Agree")
+            agreeButton.onclick = respondToPoll;
+
+            const disagreeButton = instance.querySelector('#disagree-button')
+            disagreeButton.setAttribute("data-id", survey.id)
+            disagreeButton.setAttribute("data-action", "Disagree")
+            disagreeButton.onclick = respondToPoll;
+            
             // Append the instance ot the DOM
             document.getElementById('survey-content').appendChild(instance);
         }      
     });
-
 })
+
+async function respondToPoll(e){
+    e.preventDefault()
+    const target = this;
+    console.log(this);
+    let survey_id = parseInt(target.getAttribute("data-id"));
+    let action = target.getAttribute("data-action");
+    console.log([user.id, survey_id, [action]]);
+    await addSurveyResults(user.id, survey_id, [action]);
+}
