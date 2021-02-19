@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", async() => {
     const personConfirmPass = document.querySelector("#personConPass")
     const personPass = document.querySelector("#personPass")
     const personEmail = document.querySelector("#personGmail")
-    const lastName = document.querySelector("#lanme")
-    const firstName = document.querySelector("#fName")
+    const lName = document.querySelector("#lanme")
+    const fName = document.querySelector("#fName")
     const female = document.querySelector("#female")
     const male = document.querySelector("#male")
 
@@ -56,20 +56,22 @@ document.addEventListener("DOMContentLoaded", async() => {
         }
     }
 
-   async function signUpPerson(e) {
+    async function signUpPerson(e) {
+
         if (e.target.id === "signupBtnP") {
-            let firstName = firstName.value;
-            let lastName = lastName.value;
+            let firstName = fName.value;
+            let lastName = lName.value;
             let bDate = date.value;
             let conPass = personConfirmPass.value;
             let pass = personPass.value;
             let email = personEmail.value;
             let gender = genderReveal();
-            user = await addUser({
+            alert(gender)
+            let user = await addUser({
                 email: email,
                 password: pass,
                 type: "user",
-                tags: [bDate, gender, fName, ln]
+                tags: [bDate, gender, firstName, lastName]
             })
             if (user) {
                 localStorage.setItem("user", JSON.stringfy(user));
@@ -84,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async() => {
             let catgory = catgory.value
             let emailCompany = emailCompany.value
             let companyName = companyName.value
-            user = await addUser({
+            let user = await addUser({
                 email: emailCompany,
                 password: companyPass,
                 type: "company",
@@ -98,14 +100,11 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
 
     function genderReveal() {
-        if (female.value) {
-            gender = "feamle"
-        } else if (male.value) {
-            gender = "male"
+
+        if (female.checked) {
+            return "feamle"
+        } else if (male.checked) {
+            return "male"
         }
     }
-
-
-
-
 })
