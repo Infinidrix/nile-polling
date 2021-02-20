@@ -1,6 +1,7 @@
 // ================ variables ================
 // constants
 let questionCount = 0
+let questions = []
 let addSurveyButton = `
 <div class="row pb-4">
     <div class="col-md-12 text-end" style="flex: right;">
@@ -10,17 +11,17 @@ let addSurveyButton = `
 
 let multipleChoice = `
 <div class="row py-3">
-    <div class="col-md-6">
-        <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 1" aria-label=".form-control-lg example">
+    <div class="col-md-6 py-2">
+        <input class="form-control  id="option_1" form-control-lg my-1" type="text" placeholder="Option 1" aria-label=".form-control-lg example">
     </div>
-    <div class="col-md-6">
-        <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 2" aria-label=".form-control-lg example">
+    <div class="col-md-6 py-2">
+        <input class="form-control  id="option_2" form-control-lg my-1" type="text" placeholder="Option 2" aria-label=".form-control-lg example">
     </div> 
-    <div class="col-md-6">
-        <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 3" aria-label=".form-control-lg example">
+    <div class="col-md-6 py-2">
+        <input class="form-control  id="option_3" form-control-lg my-1" type="text" placeholder="Option 3" aria-label=".form-control-lg example">
     </div>
-    <div class="col-md-6">
-        <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 4" aria-label=".form-control-lg example">
+    <div class="col-md-6 py-2">
+        <input class="form-control  id="option_4" form-control-lg my-1" type="text" placeholder="Option 4" aria-label=".form-control-lg example">
     </div> 
 </div>`
 
@@ -37,18 +38,19 @@ let textReplay = `
 let titleAnswer = document.getElementById("title_answer");
 let shortDescriptionAnswer = document.getElementById("short_description_answer");
 let addSurveyEntry = document.getElementById("add_survey_entry");
-let surveyWrapper = document.getElementById("survey_wrapper")
-
+let surveyWrapper = document.getElementById("survey_wrapper");
+let saveSurveyButton = document.getElementById("save_survey");
 
 // ================ event listeners ================
 addSurveyEntry.addEventListener("click", addSurveyEntryFunc); 
-surveyWrapper.addEventListener("click", selectAnsweringMethod)
-
+surveyWrapper.addEventListener("click", selectAnsweringMethod);
+saveSurveyButton.addEventListener("click", saveSurvey);
 
 
 
 // ================ functions ================
 function addSurveyEntryFunc(e) { // function to add new question entry
+    questionCount += 1
     let questionEntry = `
     <div class="px-4 py-5 card body-part postCard polling mb-3" id = "question_${questionCount}">
         <div class="container-fluid " style="color: black;">
@@ -77,10 +79,10 @@ function addSurveyEntryFunc(e) { // function to add new question entry
     e.target.parentNode.parentNode.remove();
     sourceParent.innerHTML += questionEntry + addSurveyButton;
     document.getElementById("add_survey_entry").addEventListener("click", addSurveyEntryFunc); 
-    questionCount += 1
+    
 }
 
-function selectAnsweringMethod(e) {
+function selectAnsweringMethod(e) { // function to select question responding type
     // console.log(e.target.innerHTML)
     if (e.target.innerHTML === `Multiple Options`){
         e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = multipleChoice;
@@ -88,4 +90,8 @@ function selectAnsweringMethod(e) {
     else if (e.target.innerHTML === `Text Reply`){
         e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = textReplay;
     }
+}
+
+function saveSurvey(e) { // function to save survey format to the db
+    
 }
