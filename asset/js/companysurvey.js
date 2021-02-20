@@ -93,5 +93,35 @@ function selectAnsweringMethod(e) { // function to select question responding ty
 }
 
 function saveSurvey(e) { // function to save survey format to the db
-    
+    let questions = []
+    for (let i=1; i < questionCount+1; i++){
+        let question = document.getElementById("question_" + i);
+        if (question.children[0].children[1].children[0].children[0].children[0].innerHTML !== ""){
+            alert("Error: You have to chose responding method")
+        }else{
+            let type = 1
+            if (question.children[0].children[1].children[0].children.length === 4){
+                type = 4
+            }
+            // console.log(question.children[0].children[1].children[0].children[i-1].children[0].value)
+            let answeringMethodData = []
+            for (let j = 0; j < type; j++){
+                answeringMethodData.push(question.children[0].children[1].children[0].children[j].children[0].value)
+            }
+
+            let questionObj = {
+                "question" : question.children[0].children[0].value,
+                "type": type,
+                "answerMethodData" : answeringMethodData
+            }
+            questions.push(questionObj)
+        }
+    }
+    let survey = {
+        "title" : document.getElementById("title_answer").value,
+        "description" : document.getElementById("short_description_answer").value,
+        "questions" : questions
+    }
+
+    console.log(survey)
 }
