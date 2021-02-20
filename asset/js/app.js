@@ -41,7 +41,11 @@ document.addEventListener("DOMContentLoaded", async() => {
         if (user) {
             spinnerLogin.style.display = "block"
             localStorage.setItem("user", JSON.stringify(user));
-            location.href = "user_page.html";
+            if (user.type === "user"){
+                location.href = "user_page.html";
+            } else{
+                location.href = "company_page.html";
+            }
         } else {
             passInput.style.border = "solid 1px"
             userNameInput.style.border = "solid 1px"
