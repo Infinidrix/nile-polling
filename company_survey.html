@@ -53,13 +53,13 @@
 
             <!--======================================================*****************************=============================================*******************================-->
 
-            <div class="col-md-12 ">
+            <div class="col-md-12 " id="survey_wrapper">
                 <div class="px-5 py-5 card body-part postCard polling mb-3 	">
-                    <input class="form-control form-control-lg my-2 mb-3" type="text" placeholder="Title" aria-label=".form-control-lg example">
-                    <textarea type="text" class="form-control my-2" rows="3" id="answer" placeholder="Short description of the survey...."></textarea>
+                    <input class="form-control form-control-lg my-2 mb-3" type="text" id="title_answer" placeholder="Title" aria-label=".form-control-lg example">
+                    <textarea type="text" class="form-control my-2" rows="3" id="short_description_answer" placeholder="Short description of the survey...."></textarea>
                 </div>
 
-                <div class="px-4 py-5 card body-part postCard polling mb-3 	">
+                <!-- <div class="px-4 py-5 card body-part postCard polling mb-3 	">
                     <div class="container-fluid " style="color: black;">
                         <textarea type="text " class="form-control my-2 mx-2" rows="3" id="answer" placeholder="Question"></textarea>
                         <div class="form-check">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 1" aria-label=".form-control-lg example">
-                                </div>
+                                </div> 
                                 <div class="col-md-4 text-end" style="flex: right;">
                                     <div class="dropdown ">
                                         <button style="background-color: #2867B2;border:none" class="btn btn-lg  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,38 +91,14 @@
                                 </div>
                                 <div class="col-md-4">
                                     <input class="form-control  form-control-lg my-1" type="text" placeholder="Option 1" aria-label=".form-control-lg example">
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="px-5 py-5 card body-part postCard polling mb-3 	">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <textarea type="text" class="form-control my-2" rows="3" id="answer" placeholder="Question"></textarea>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-
-                        <div class="col-md-12 text-end " style="flex: right;">
-                            <div class="dropdown my-2 ">
-                                <button style="background-color: #2867B2;border:none" class="btn btn-lg  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Dropdown button
-                                </button>
-                                <ul class=" dropdown-menu dropdown-menu-dark " style="background-color: #ffffff; color:black" aria-labelledby=" dropdownMenuButton2 ">
-                                    <li><a class="dropdown-item active " style="background-color: #ffffff; color:black" href="# ">&nbsp;&nbsp;&nbsp;&nbsp; Multiple Options &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item " style="background-color: #ffffff; color:black" href="# ">&nbsp;&nbsp;&nbsp;&nbsp; Text Reply &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
+                </div> -->
+                <div class="row pb-4">
                     <div class="col-md-12 text-end" style="flex: right;">
-                        <i class=" fa fa-plus p-2 " aria-hidden="true " style="color: white; background-color:#2867B2;border-radius:50% "></i>
+                        <i class=" fa fa-plus p-2 " id="add_survey_entry" aria-hidden="true " style="color: white; background-color:#2867B2;border-radius:50% "></i>
                     </div>
                 </div>
 
@@ -139,14 +115,15 @@
 
             </div>
         </div>
-
+    </div>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
 
         <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-        <script type="module" src="asset/js/app.js"></script>
+        <script type="module" src="asset/js/main.js"></script>
+        <script type="module" src="asset/js/companysurvey.js"></script>
 </body>
 
 </html>
