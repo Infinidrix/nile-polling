@@ -132,113 +132,81 @@
 
 
 
-                <div class="card py-4 body-part postCard polling mb-3 	">
-                    <div class="container-fluid py-3 ">
-                        <img class="company_logo img-fluid me-2 " src="/asset/image/maale.png " alt="profile image ">
-                        <div class="row">
-                            <h4 class="py-0 my-0  profileName" id="company-name">Natenam Melise</h4>
-                        </div>
-                        <div class="row ">
-                            <ul class="list-inline py-0 my-0 ">
-                                <li class="list-inline-item py-0 my-0 pro">Student</li>
-                                <li class="list-inline-item py-0 my-0 time" id="poll-date">2 hours ago </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="container-fluid pt-2 text-justify postCard mb-3">
-                        <p class="text-justify" id="poll-question">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-                    </div>
-                    <div class="container-fluid pt-2 ">
-                        <div class="row ">
-                            <div class="col-md-6 ">
-                                <span class="px-2 agreeT">50% Agree</span></i>
-
-                                <span class="px-2 disagreeT">50% Disagree</span></i>
-                            </div>
-                            <div class="col-md-6 ">
-                                <p class="number-of-vote " id="number-of-votes">345 users voted</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                <div class="card py-4 body-part postCard polling mb-3 	">
-                    <div class="container-fluid py-3 ">
-                        <img class="company_logo img-fluid me-2 " src="/asset/image/maale.png " alt="profile image ">
-                        <div class="row">
-                            <h4 class="py-0 my-0  profileName" id="company-name">Natenam Melise</h4>
-                        </div>
-                        <div class="row ">
-                            <ul class="list-inline py-0 my-0 ">
-                                <li class="list-inline-item py-0 my-0 pro">Student</li>
-                                <li class="list-inline-item py-0 my-0 time" id="poll-date">2 hours ago </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="container-fluid pt-2 text-justify postCard mb-3">
-                        <p class="text-justify" id="poll-question">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-                    </div>
-                    <div class="container-fluid pt-2 ">
-                        <div class="row ">
-                            <div class="col-md-6 ">
-                                <a href=" "><i class="fas fa-poll-h" id="surveyC">
-                                    <span class="px-2 agreeT"  >See Survey</span></i></a>
-
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <template id="survey-card">
-                    <div class="card py-4 body-part postCard polling mb-3">
+                <template id="poll-card">
+                    <div class="card py-4 body-part postCard polling mb-3 	">
                         <div class="container-fluid py-3 ">
                             <img class="company_logo img-fluid me-2 " src="/asset/image/maale.png " alt="profile image ">
-                            <div class="row ">
-                                <h4 class="py-0 my-0  profileName">Natenam Melise</h4>
+                            <div class="row">
+                                <h4 class="py-0 my-0  profileName" id="company-name">Natenam Melise</h4>
                             </div>
                             <div class="row ">
                                 <ul class="list-inline py-0 my-0 ">
                                     <li class="list-inline-item py-0 my-0 pro">Student</li>
-                                    <li class="list-inline-item py-0 my-0 time ">2 hours ago </li>
+                                    <li class="list-inline-item py-0 my-0 time" id="poll-date">2 hours ago </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="container-fluid pt-2 text-justify postCard ">
-                            <p class="text-justify ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+    
+    
+    
+    
+                        <div class="container-fluid pt-2 text-justify postCard mb-3">
+                            <p class="text-justify" id="poll-question">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
                                 specimen book. It has survived not only five centuries, but also the leap into electronic</p>
                         </div>
                         <div class="container-fluid pt-2 ">
                             <div class="row ">
                                 <div class="col-md-6 ">
-                                    <a href=" "><i class="fa fa-thumbs-up pe-2 agree " ><span class="px-2 agreeT"  >Agree</span></i></a>
-                                    <a href=" "><i class="fa fa-thumbs-down disagree" ><span class="px-2 disagreeT"  >Disagree</span></i>
-                                    </a>
+                                    <span class="px-2 agreeT" id="agree-number">50% Agree</span></i>
+    
+                                    <span class="px-2 disagreeT" id="disagree-number">50% Disagree</span></i>
                                 </div>
                                 <div class="col-md-6 ">
-                                    <p class="number-of-vote ">345 users voted</p>
-
+                                    <p class="number-of-vote " id="number-of-votes">345 users voted</p>
+    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </template>
+
+
+
+
+
+
+
+                <template id="survey-card">
+                    <div class="card py-4 body-part postCard polling mb-3 	">
+                        <div class="container-fluid py-3 ">
+                            <img class="company_logo img-fluid me-2 " src="/asset/image/maale.png " alt="profile image ">
+                            <div class="row">
+                                <h4 class="py-0 my-0  profileName" id="company-name">Natenam Melise</h4>
+                            </div>
+                            <div class="row ">
+                                <ul class="list-inline py-0 my-0 ">
+                                    <li class="list-inline-item py-0 my-0 pro">Student</li>
+                                    <li class="list-inline-item py-0 my-0 time" id="poll-date">2 hours ago </li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="container-fluid pt-2 text-justify postCard mb-3">
+                            <p class="text-justify" id="poll-question">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                                specimen book. It has survived not only five centuries, but also the leap into electronic</p>
+                        </div>
+                        <div class="container-fluid pt-2 ">
+                            <div class="row ">
+                                <div class="col-md-6 ">
+                                    <a href=" "><i class="fas fa-poll-h" id="surveyC">
+                                        <span class="px-2 agreeT"  >See Survey</span></i></a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
             </div>
             <!--======================================================*****************************=============================================*******************================-->
 
@@ -311,9 +279,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <script type="module" src="asset/js/app.js"></script>
     <script type="module" src="asset/js/main.js"></script>
-    <script type="module" src="asset/js/userpage.js"></script>
+    <script type="module" src="asset/js/companypage.js"></script>
 </body>
 
 </html>
