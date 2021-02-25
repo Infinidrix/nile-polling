@@ -203,6 +203,16 @@ export async function testDB(){
   await user_login("se.biruk.solomon@gmail.com", "amazingPassword");
 }
 
+function hashCode(str) { // function to hash the users password
+  let hash = 0, i, chr;
+  for (i = 0; i < str.length; i++) {
+    chr   = str.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+}
+
 async function populateDB(){
   await addUser({email: "se.biruk.solomon@gmail.com", password:hashCode("LifeIsShort"), type:"user", tags: ["education", "economics"]});
   await addUser({email: "se.hanan.miftah@gmail.com", password:hashCode("SuperSecurePassword"), type:"user", tags: ["education", "health"]});
