@@ -1,4 +1,4 @@
-
+import {hashCode} from '../app.js'
 let db;
 /**
  * Initiaized the DB
@@ -204,12 +204,12 @@ export async function testDB(){
 }
 
 async function populateDB(){
-  await addUser({email: "se.biruk.solomon@gmail.com", password:"LifeIsShort", type:"user", tags: ["education", "economics"]});
-  await addUser({email: "se.hanan.miftah@gmail.com", password:"SuperSecurePassword", type:"user", tags: ["education", "health"]});
-  await addUser({email: "se.natneam.mesele@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "phliosophy"]});
-  await addUser({email: "se.abdulfeta.dedgba@gmail.com", password:"DuplicatePassword", type:"user", tags: ["education", "gaming", "business"]});
-  await addUser({email: "marketer@company.org", password:"BusinessCasual", type:"company", tags: ["gaming", "economics"]});
-  await addUser({email: "ngo@charity.com", password:"HelpEveryone", type:"company", tags: ["education", "health"]});
+  await addUser({email: "se.biruk.solomon@gmail.com", password:hashCode("LifeIsShort"), type:"user", tags: ["education", "economics"]});
+  await addUser({email: "se.hanan.miftah@gmail.com", password:hashCode("SuperSecurePassword"), type:"user", tags: ["education", "health"]});
+  await addUser({email: "se.natneam.mesele@gmail.com", password:hashCode("DuplicatePassword"), type:"user", tags: ["education", "phliosophy"]});
+  await addUser({email: "se.abdulfeta.dedgba@gmail.com", password:hashCode("DuplicatePassword"), type:"user", tags: ["education", "gaming", "business"]});
+  await addUser({email: "marketer@company.org", password:hashCode("BusinessCasual"), type:"company", tags: ["gaming", "economics"]});
+  await addUser({email: "ngo@charity.com", password:hashCode("HelpEveryone"), type:"company", tags: ["education", "health"]});
   await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [0]});
   await addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0]});
   await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: [0]});
