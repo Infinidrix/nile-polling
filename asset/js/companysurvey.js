@@ -126,14 +126,16 @@ function saveSurvey(e) { // function to save survey format to the db
         "title" : document.getElementById("title_answer").value,
         "description" : document.getElementById("short_description_answer").value,
         "questions" : questions,
+        "respondents" : [0],
         "date" : new Date(),
-        "type" : "company",
+        "type" : "survey",
         "tags" : user.tags
     }
     try{
         addSurvey(survey)
             .then((result)=>{
                 console.log(result)
+                history.back()
             }, (result)=>{
                 console.log("error" + result)
             });
