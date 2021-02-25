@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         }
     }
 
-    function hashCode(str) { // function to hash the users password
+    export function hashCode(str) { // function to hash the users password
         let hash = 0, i, chr;
         for (i = 0; i < str.length; i++) {
           chr   = str.charCodeAt(i);
