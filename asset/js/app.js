@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
     async function login() {
         let userName = userNameInput.value
-        let pass = passInput.value
+        // let pass = passInput.value
+        let pass = hashCode(passInput.value)
         let user = await user_login(userName, pass)
         if (user) {
             spinnerLogin.style.display = "block"
@@ -66,11 +67,13 @@ document.addEventListener("DOMContentLoaded", async() => {
             let firstName = fName.value;
             let lastName = lName.value;
             let bDate = date.value;
-            let conPass = personConfirmPass.value;
-            let pass = personPass.value;
+            // let conPass = personConfirmPass.value;
+            let conPass = hashCode(personConfirmPass.value);
+            // let pass = personPass.value;
+            let pass = hashCode(personPass.value);
             let email = personEmail.value;
             let gender = genderReveal();
-            alert(gender)
+            // alert(gender)
             let user = await addUser({
                 email: email,
                 password: pass,
@@ -85,8 +88,10 @@ document.addEventListener("DOMContentLoaded", async() => {
                 alert("check again erorr")
             }
         } else {
-            let confirmPassCompany = confirmPassCompany.value
-            let companyPass = companyPass.value
+            // let confirmPassCompany = confirmPassCompany.value
+            let confirmPassCompany = hashCode(confirmPassCompany.value)
+            // let companyPass = companyPass.value
+            let companyPass = hashCode(companyPass.value)
             let catgory = catgory.value
             let emailCompany = emailCompany.value
             let companyName = companyName.value
@@ -106,9 +111,21 @@ document.addEventListener("DOMContentLoaded", async() => {
     function genderReveal() {
 
         if (female.checked) {
-            return "feamle"
+            return "female"
         } else if (male.checked) {
             return "male"
         }
     }
+
+    function hashCode(str) { // function to hash the users password
+        let hash = 0, i, chr;
+        for (i = 0; i < str.length; i++) {
+          chr   = str.charCodeAt(i);
+          hash  = ((hash << 5) - hash) + chr;
+          hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+      }
+
+
 })
