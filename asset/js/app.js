@@ -136,9 +136,9 @@ document.addEventListener("DOMContentLoaded", async() => {
     function passwordStrength(e) {
         let password = e.target.value;
         let label = e.target.nextSibling;
-        let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-        let mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-        let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+        let strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        let mediumRegex = new RegExp("^(?=.{6,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        let enoughRegex = new RegExp("(?=.{4,}).*", "g");
         if (password.length == 0) {
             label.innerHTML = '<span>Type Password</span>'
         } else if (false == enoughRegex.test(password)) {
