@@ -1,4 +1,4 @@
-import {hashCode} from '../app.js'
+
 let db;
 /**
  * Initiaized the DB
