@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async() => {
     const fName = document.querySelector("#fName")
     const female = document.querySelector("#female")
     const male = document.querySelector("#male")
+    let personPasswordStrength = document.querySelector("#personPasswordStrength")
 
     // for company
     const companyName = document.querySelector("#cName");
@@ -28,11 +29,15 @@ document.addEventListener("DOMContentLoaded", async() => {
     const companyPass = document.querySelector("#cPass")
     const signUpBntnComp = document.querySelector("#signUpBntnComp")
     const confirmPassCompany = document.querySelector("#conCamPass")
+    let companyPasswordStrength = document.querySelector("#companyPasswordStrength")
+
 
 
     loginBtn.addEventListener("click", login)
     signupBtnP.addEventListener("click", signUpPerson)
     signUpBntnComp.addEventListener("click", signUpPerson)
+    personPass.addEventListener('keyup', passwordStrength)
+    companyPass.addEventListener('keyup', passwordStrength)
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
     async function login() {
         let userName = userNameInput.value
@@ -128,4 +133,22 @@ document.addEventListener("DOMContentLoaded", async() => {
       }
 
 
+    function passwordStrength(e) {
+        let password = e.target.value;
+        let label = e.target.nextSibling;
+        let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+        let mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+        if (password.length == 0) {
+            label.innerHTML = '<span>Type Password</span>'
+        } else if (false == enoughRegex.test(password)) {
+            label.innerHTML = '<span style="font-size:14px">More Characters</span>';
+        } else if (strongRegex.test(password)) {
+            label.innerHTML =  '<span style="color:green;font-size:14px">Strong!</span>';
+        } else if (mediumRegex.test(password)) {
+            label.innerHTML =  '<span style="color:orange;font-size:14px">Medium!</span>';
+        } else {
+            label.innerHTML =  '<span style="color:red;font-size:14px">Weak!</span>';
+        }
+}
 })
