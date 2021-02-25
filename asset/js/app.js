@@ -81,8 +81,8 @@ document.addEventListener("DOMContentLoaded", async() => {
                 tags: [bDate, gender, firstName, lastName]
             })
             if (user) {
-                localStorage.setItem("user", JSON.stringfy(user));
-                location.href = "user.html";
+                localStorage.setItem("user", JSON.stringify(user));
+                location.href = "user_page.html";
 
             } else {
                 alert("check again erorr")
@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", async() => {
                 tags: [catgory]
             })
             if (user) {
-                localStorage.setItem("user", JSON.stringfy(user));
-                location.href = "user.html";
+                localStorage.setItem("user", JSON.stringify(user));
+                location.href = "company_page.html";
             } else {}
         }
     }
