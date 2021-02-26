@@ -6,6 +6,8 @@ async function search(inp) {
     inp.addEventListener("input", async function(e) {
         let val = this.value;
         let arr = await searchSurveys(val);
+        // empty the display list
+        document.getElementById('survey-content').innerHTML = ""
         /*for each item in the array...*/
         for (let i = 0; i < arr.length; i++) {
           console.log(arr[i])
