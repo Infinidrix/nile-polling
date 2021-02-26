@@ -1,3 +1,7 @@
+// =============== imports =================
+import {addSurvey} from './db/db.js'
+
+
 // ================ variables ================
 // constants
 let questionCount = 0
@@ -77,7 +81,7 @@ function addSurveyEntryFunc(e) { // function to add new question entry
     </div>`
     let sourceParent = e.target.parentNode.parentNode.parentNode
     e.target.parentNode.parentNode.remove();
-    sourceParent.innerHTML += questionEntry + addSurveyButton;
+    sourceParent.insertAdjacentHTML('beforeend', questionEntry + addSurveyButton);
     document.getElementById("add_survey_entry").addEventListener("click", addSurveyEntryFunc); 
     
 }
@@ -118,10 +122,24 @@ function saveSurvey(e) { // function to save survey format to the db
         }
     }
     let survey = {
+        "company_id" : window.user.id,
         "title" : document.getElementById("title_answer").value,
         "description" : document.getElementById("short_description_answer").value,
-        "questions" : questions
+        "questions" : questions,
+        "respondents" : [0],
+        "date" : new Date(),
+        "type" : "survey",
+        "tags" : user.tags
     }
-
-    console.log(survey)
+    try{
+        addSurvey(survey)
+            .then((result)=>{
+                console.log(result)
+                history.back()
+            }, (result)=>{
+                console.log("error" + result)
+            });
+    }catch(e){
+        console.log("Check this error: " + e)
+    }
 }
