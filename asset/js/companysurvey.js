@@ -114,9 +114,9 @@ function saveSurvey(e) { // function to save survey format to the db
             }
 
             let questionObj = {
-                "question" : question.children[0].children[0].value,
-                "type": type,
-                "answerMethodData" : answeringMethodData
+                "questions" : question.children[0].children[0].value,
+                "type": type==1?'text':'option',
+                "options" : answeringMethodData
             }
             questions.push(questionObj)
         }
