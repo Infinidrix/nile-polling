@@ -31,7 +31,7 @@ export async function init(){
  * Adds a user to the DB
  * @param {Object} user - the user object in format: {email: "", password: "", type: "user" or "company", tags: [], properties: {}}
  * 
- * @returns {Object} the saved user object
+ * @returns {Promise<Object>} the saved user object
  * 
  * @throws An error in case of a duplicate email
  */
@@ -56,7 +56,7 @@ export async function addUser(user){
  * @param {String} email 
  * @param {String} password 
  * 
- * @returns {Object | null} null if user doesn't exist otherwise the saved user object
+ * @returns {Promise<Object | null>} null if user doesn't exist otherwise the saved user object
  */
 export async function user_login(email, password){
   let result = await db.users
@@ -73,7 +73,7 @@ export async function getCompany(company_id){
  * 
  * @param {String} query - search query
  * 
- * @returns {Array<Object>} - array of survey object that start with the query string 
+ * @returns {Promise<Array<Object>>} - array of survey object that start with the query string 
  */
 export async function searchSurveys(query){
   return await db.surveys.where('title')
@@ -88,7 +88,7 @@ export async function searchSurveys(query){
  * @param {String} query - search query
  * @param {Number} company_id - the ID of the company
  * 
- * @returns {Array<Object>} - array of survey object that start with the query string that belongs to the company
+ * @returns {Promise<Array<Object>>} - array of survey object that start with the query string that belongs to the company
  */
 export async function searchSurveysOfCompany(query, company_id){
   return await db.surveys.where('title')
@@ -104,7 +104,7 @@ export async function searchSurveysOfCompany(query, company_id){
  * @param {String} query - search query
  * @param {Number} user_id - the ID of the user
  * 
- * @returns {Array<Object>} - array of survey object that start with the query string that the user hasn't responded to
+ * @returns {Promise<Array<Object>>} - array of survey object that start with the query string that the user hasn't responded to
  */
 export async function searchSurveysForUser(query, user_id){
   return await db.surveys.where('title')
@@ -120,7 +120,7 @@ export async function searchSurveysForUser(query, user_id){
  * 
  * @param {String} tag  - The tag that you want to filter surveys by
  * 
- * @returns {Array<Object>} - Array of surveys created by companies that have the requested tag
+ * @returns {Promise<Array<Object>>} - Array of surveys created by companies that have the requested tag
  */
 export async function filterSurveysByTag(tag){
   var companiesWithTag = (await db.users.where("tags")
@@ -146,7 +146,7 @@ export async function filterSurveysByTag(tag){
  * @param {Number} survey_id - The survey ID
  * @param {Array<String|Number>} answers - An array containing the user response
  * 
- * @returns {Object} The saved survey results object
+ * @returns {Promise<Object>} The saved survey results object
  */
 export async function addSurveyResults(user_id, survey_id, answers){
   let obj = {user_id, survey_id, answers, date: new Date()};
@@ -173,7 +173,7 @@ export async function addSurveyResults(user_id, survey_id, answers){
 
 /** Adds a survey object to the db,
  * @param {Object} survey - the survey to be saved. In format: {company_id:0, type:"", questions:[], date: new Date(), respondents: []}
- * @returns {Object} The saved suvey
+ * @returns {Promise<Object>} The saved suvey
 */
 export async function addSurvey(survey){
   try {
@@ -188,7 +188,7 @@ export async function addSurvey(survey){
  * Gets surveys that the user hasn't responded to yet - to be used for the user homepage
  * @param {Number} user_id - The user ID 
  * 
- * @returns {Array<Object>} List of survey objects
+ * @returns {Promise<Array<Object>>} List of survey objects
  */
 export async function getSurveysForUser(user_id){
     return await db.surveys.where("respondents")
@@ -205,7 +205,7 @@ export async function getSurveysForUser(user_id){
  * Gets surveys that the user has responded - to be used for the user profile page if necessary
  * @param {Number} user_id - The user ID 
  * 
- * @returns {Array<Object>} List of survey objects
+ * @returns {Promise<Array<Object>>} List of survey objects
  */
 export async function getSurveysOfUser(user_id){
   return await db.surveys.where("respondents")
@@ -219,7 +219,7 @@ export async function getSurveysOfUser(user_id){
  * Gets surveys that the company has created
  * @param {Int} company_id - The ID of the company
  * 
- * @returns {Array<Object>} list of survey objects
+ * @returns {Promise<Array<Object>>} list of survey objects
  */
 export async function getSurveysOfCompany(company_id){
   return await db.surveys.where("company_id")
@@ -240,7 +240,7 @@ export async function getAgreeForSurvey(survey_id){
  * 
  * @param {Number} survey_id 
  * 
- * @returns {Object} the survey object with that ID
+ * @returns {Promise<Object>} the survey object with that ID
  */
 export async function getSurvey(survey_id){
   return await db.surveys.get(survey_id)
