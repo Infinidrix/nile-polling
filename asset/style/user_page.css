@@ -52,7 +52,6 @@
     
     .form-control[type=search]:focus {
         border: none;
-        background-color: rgba(22, 29, 38, 1);
     }
     
     h3 {
