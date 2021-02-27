@@ -69,12 +69,74 @@ export async function user_login(email, password){
 export async function getCompany(company_id){
   return await db.users.get(company_id)
 }
-
+/**
+ * 
+ * @param {String} query - search query
+ * 
+ * @returns {Array<Object>} - array of survey object that start with the query string 
+ */
 export async function searchSurveys(query){
   return await db.surveys.where('title')
     .startsWithIgnoreCase(query)
     .toArray()
 }
+// test for the above function
+// setTimeout(() => searchSurveys("Increase").then(console.log), 2000)
+
+/**
+ * 
+ * @param {String} query - search query
+ * @param {Number} company_id - the ID of the company
+ * 
+ * @returns {Array<Object>} - array of survey object that start with the query string that belongs to the company
+ */
+export async function searchSurveysOfCompany(query, company_id){
+  return await db.surveys.where('title')
+    .startsWithIgnoreCase(query)
+    .filter((survey) => survey.company_id === company_id)
+    .toArray()
+}
+// test for the above function
+// setTimeout(() => searchSurveysOfCompany("Increase", 6).then(console.log), 2000)
+
+/**
+ * 
+ * @param {String} query - search query
+ * @param {Number} user_id - the ID of the user
+ * 
+ * @returns {Array<Object>} - array of survey object that start with the query string that the user hasn't responded to
+ */
+export async function searchSurveysForUser(query, user_id){
+  return await db.surveys.where('title')
+    .startsWithIgnoreCase(query)
+    .filter((survey) => !survey.respondents.includes(user_id))
+    .toArray()
+}
+// test for above function
+// setTimeout(() => searchSurveysForUser("Increase", 2).then(console.log), 2000)
+
+/**
+ * List surveys that have a certain tag
+ * 
+ * @param {String} tag  - The tag that you want to filter surveys by
+ * 
+ * @returns {Array<Object>} - Array of surveys created by companies that have the requested tag
+ */
+export async function filterSurveysByTag(tag){
+  var companiesWithTag = (await db.users.where("tags")
+    .equals(tag)
+    .distinct()
+    .filter((user) => user.type === "company")
+    .toArray())
+    .map((user) => user.id)
+
+    return await db.surveys.where("company_id")
+    .anyOf(companiesWithTag)
+    .distinct()
+    .toArray()
+}
+// Test for the above function
+// setTimeout(() => filterSurveysByTag("gaming").then(console.log), 2000)
 
 /**
  * Saves survey results, creating them if they don't exist
