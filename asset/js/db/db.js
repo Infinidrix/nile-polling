@@ -71,7 +71,7 @@ export async function getCompany(company_id){
 }
 
 export async function searchSurveys(query){
-  return await db.survey.where('title')
+  return await db.surveys.where('title')
     .startsWithIgnoreCase(query)
     .toArray()
 }
