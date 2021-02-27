@@ -1,4 +1,4 @@
-import { getSurvey } from "./db/db.js"
+import { addSurveyResults, getSurvey } from "./db/db.js"
 const urlParams = new URLSearchParams(window.location.search);
 const survey_id = Number(urlParams.get('id'));
 
@@ -35,9 +35,38 @@ document.addEventListener("DBInitalized", async () => {
         } else if (question.type === "text"){
             let instance = document.importNode(textFragment.content, true);
             let questionTitle = question.questions;
+            let textarea = instance.querySelector("textarea")
             instance.querySelector("h4").textContent = questionTitle;
+
             questionList.appendChild(instance);
-            answers.push({type: "text", loc: instance.querySelector("textarea")});
+            answers.push({type: "text", loc: textarea});
         }
     });
+
+    console.log(answers)
+
+
+    document.querySelector("#submit-button").onclick = async () => {
+        let answerValues = []
+        for (const answer of answers){
+            if (answer.type === "option"){
+                let selectedOption = answer.loc.querySelector("input[name=flexRadioDefault]:checked")
+                if (!selectedOption){
+                    // add better highlighting of error
+                    answer.loc.style.border = "2px solid red"
+                    return null
+                }
+                let answerNode = selectedOption.parentElement
+                // get the index of the answer
+                let answerValue = [].indexOf.call(answerNode.parentElement.children, answerNode)
+                answerValues.push(answerValue - 1)
+            } else if (answer.type === "text"){
+                answerValues.push(answer.loc.value)
+            } else {
+                console.log("Unknown answer type found " + answer.type)
+            }
+        }
+        await addSurveyResults(user.id, survey.id, answerValues)
+        history.back()
+    }
 })
