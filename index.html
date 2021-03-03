@@ -115,7 +115,6 @@
             </div>
             <div class="col-md-6 text-center " id="top">
                 <img class="img-fluid mainImg " style="filter: drop-shadow(0px 0px 59px rgba(96, 233, 255, 0.2));" src="asset/image/light.png" alt=" ">
-
             </div>
         </div>
 
@@ -128,47 +127,48 @@
     <div class="modal fade " style="border-radius:10% ;" id="person" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-md-5">
-            <form id="personSignup">
-                <div class="modal-header">
-                    <h4 class="modal-title" style="color: rgba(9, 190, 173, 1)">Sign Up As Person</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group my-md-3">
-                        <input type="text" class="form-control" required="required" placeholder="First Name" id="fName" name="fName">
+                <form id="personSignup">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: rgba(9, 190, 173, 1)">Sign Up As Person</h4>
                     </div>
-                    <div class="form-group mt-2 my-md-3">
-                        <input type="text" class="form-control" required="required" placeholder="Last Name" id="lanme" name="lanme">
-                    </div>
-                    <div class="form-group mt-2 my-md-3">
-                        <input type="email" class="form-control" required="required" placeholder="Email Address" id="personGmail" name="gmail">
-                    </div>
-                    <div class="form-group mt-2 my-md-3">
-                        <input type="password" class="form-control" required="required" placeholder="Password" id="personPass" name="pass"><div id="personPasswordStrength"></div>
-                    </div>
-                    <div class="form-group mt-2 my-md-3">
-                        <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="personConPass" name="Pass">
-                    </div>
-                    <div class="form-group mt-2 my-md-3">
-                        <label style="color: black;">Date of Birth</label><br>
-                        <input type="date" class="form-control" required="required" id="date" name="date">
-                    </div>
-                    <div class="form-group my-md-3 ">
-                        <div class="form-check" style="display: inline;">
-                            <label class="form-check-label">Female
+                    <div class="modal-body">
+                        <div class="form-group my-md-3">
+                            <input type="text" class="form-control" required="required" placeholder="First Name" id="fName" name="fName">
+                        </div>
+                        <div class="form-group mt-2 my-md-3">
+                            <input type="text" class="form-control" required="required" placeholder="Last Name" id="lanme" name="lanme">
+                        </div>
+                        <div class="form-group mt-2 my-md-3">
+                            <input type="email" class="form-control" required="required" placeholder="Email Address" id="personGmail" name="gmail">
+                        </div>
+                        <div class="form-group mt-2 my-md-3">
+                            <input type="password" class="form-control" required="required" placeholder="Password" id="personPass" name="pass">
+                            <div id="personPasswordStrength"></div>
+                        </div>
+                        <div class="form-group mt-2 my-md-3">
+                            <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="personConPass" name="Pass">
+                        </div>
+                        <div class="form-group mt-2 my-md-3">
+                            <label style="color: black;">Date of Birth</label><br>
+                            <input type="date" class="form-control" required="required" id="date" name="date">
+                        </div>
+                        <div class="form-group my-md-3 ">
+                            <div class="form-check" style="display: inline;">
+                                <label class="form-check-label">Female
                                   <input type="radio" class="rad form-check-input " id="female" value="Female"  name="gender">
                                 </label>
-                        </div>
-                        <div class="form-check" style="display: inline;">
-                            <label class="form-check-label">Male
+                            </div>
+                            <div class="form-check" style="display: inline;">
+                                <label class="form-check-label">Male
                                   <input type="radio" class=" rad form-check-input" id="male"  value="Male" name="gender">
                                 </label>
+                            </div>
                         </div>
                     </div>
+                </form>
+                <div class="form-group mt-2">
+                    <button class="login mx-0 btn w-100" id="signupBtnP" style="background-color: rgba(9, 190, 173, 1);" value="Sign Up">Sign UP</button>
                 </div>
-            </form>
-            <div class="form-group mt-2">
-                <button class="login mx-0 btn w-100" id="signupBtnP" style="background-color: rgba(9, 190, 173, 1);" value="Sign Up">Sign UP</button>
-            </div>
             </div>
         </div>
     </div>
@@ -187,10 +187,27 @@
                             <input type="email" class="form-control" required="required" placeholder="Company Email Address" id="emailCom">
                         </div>
                         <div class="form-group my-md-3 mt-2">
-                            <input type="text" class="form-control" required="required" placeholder="Company Category" id="catgory">
+                            <div class="dropdown">
+                                <a class="login mx-0 btn w-100 h-50 dropdown-toggle" style="background-color:rgba(245,127,23,1);" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Dropdown link
+                                    </a>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <a class="dropdown-item" id="other">Other</a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
                         <div class="form-group my-md-3 mt-2">
-                            <input type="password" class="form-control" required="required" placeholder="Password" id="cPass"><div id="companyPasswordStrength"></div>
+                            <input type="text" style="display: none;" class="form-control" required="required" placeholder="Other" id="catgory"> </li>
+                        </div>
+
+                        <div class="form-group my-md-3 mt-2">
+                            <input type="password" class="form-control" required="required" placeholder="Password" id="cPass">
+                            <div id="companyPasswordStrength"></div>
                         </div>
                         <div class="form-group my-md-3 mt-2">
                             <input type="password" class="form-control" required="required" placeholder="Confirm Password" id="conCamPass">
