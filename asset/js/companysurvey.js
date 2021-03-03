@@ -61,19 +61,20 @@ function addSurveyEntryFunc(e) { // function to add new question entry
             <textarea type="text " class="form-control my-2 mx-2" rows="3" id="answer" placeholder="Question"></textarea>
             <div class="form-check">
                 <div class="row py-3">
+                    <div class="dropdown ">
+                                <button style="background-color: #2867B2;border:none" class="btn btn-lg  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Responding Method
+                                </button>
+                                <ul class=" dropdown-menu dropdown-menu-dark " style="background-color: #ffffff; color:black" aria-labelledby=" dropdownMenuButton2 ">
+                                    <li><button class="dropdown-item active " style="background-color: #ffffff; color:black">Multiple Options</button></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><button class="dropdown-item " style="background-color: #ffffff; color:black">Text Reply</button></li>
+                                </ul>
+                    </div>
                     <div class="col-md-12 text-end" style="flex: right;">
-                        <div class="dropdown ">
-                            <button style="background-color: #2867B2;border:none" class="btn btn-lg  btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                            Responding Method
-                            </button>
-                            <ul class=" dropdown-menu dropdown-menu-dark " style="background-color: #ffffff; color:black" aria-labelledby=" dropdownMenuButton2 ">
-                                <li><button class="dropdown-item active " style="background-color: #ffffff; color:black">Multiple Options</button></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><button class="dropdown-item " style="background-color: #ffffff; color:black">Text Reply</button></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -89,10 +90,10 @@ function addSurveyEntryFunc(e) { // function to add new question entry
 function selectAnsweringMethod(e) { // function to select question responding type
     // console.log(e.target.innerHTML)
     if (e.target.innerHTML === `Multiple Options`){
-        e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = multipleChoice;
+        e.target.parentNode.parentNode.parentNode.parentNode.children[1].innerHTML = multipleChoice;
     }
     else if (e.target.innerHTML === `Text Reply`){
-        e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = textReplay;
+        e.target.parentNode.parentNode.parentNode.parentNode.children[1].innerHTML = textReplay;
     }
 }
 
