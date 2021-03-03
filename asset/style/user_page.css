@@ -249,3 +249,8 @@
     .percent {
         transform: scale(0.8);
     }
+
+    #groups-you-are-interested-in-1:hover, #groups-you-are-interested-in-2:hover, #groups-you-are-interested-in-3:hover, #groups-you-are-interested-in-4:hover, #groups-you-are-interested-in-5:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
