@@ -229,6 +229,14 @@ export async function getSurveysOfCompany(company_id){
     .sortBy("date");
 }
 
+export async function getResultsForSurvey(survey_id){
+  return await db.survey_results.where('[user_id+survey_id]').between(
+    [Dexie.minKey, survey_id],
+    [Dexie.maxKey, survey_id])
+    .filter(result => result.survey_id == survey_id)
+    .toArray();
+}
+
 export async function getAgreeForSurvey(survey_id){
   return await db.survey_results.where('[user_id+survey_id]').between(
     [Dexie.minKey, survey_id],

@@ -29,6 +29,8 @@ export async function displaySurveys(survey){
             instance.querySelector('#number-of-votes').textContent = respondent_message;
             instance.querySelector("#agree-number").textContent = `${Math.round(agreePercent * 100)}% Agree`
             instance.querySelector("#disagree-number").textContent = `${Math.round((1 - agreePercent) * 100)}% Disagree`
-        }   
+        } else {
+            instance.querySelector("#surveyC").href = "survey_dashboard.html?id=" + survey.id;
+        }
         document.getElementById('survey-content').appendChild(instance);
 }

@@ -46,167 +46,64 @@
 
     <!--======================================================*****************************=============================================*******************================-->
 
-    <div class="container">
-        <h1 class="m-5">Survey 1</h1>
-        <div class="row mb-2">
-            <div class="col-12 w-100">
-                <div class="card p-5" style="color: black;">
-                    <h2>
-                       1. Would you play games developed by Ethiopians
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card w-100 pt-1" style="color: black;">
-                    <h2>A. yes</h2>
-                    <div class="circle-wrap">
-                        <div class="circle">
-                          <div class="mask full">
-                            <div class="fill k1"></div>
-                          </div>
-                          <div class="mask half">
-                            <div class="fill fill1"></div>
-                          </div>
-                          <div class="inside-circle"> 50% </div>
-                        </div>
+    <div class="container" id="results">
+        <h1 class="m-5" id="survey-title">Survey 1</h1>
+
+        <template id="options-card">
+            <div class="row mb-2">
+                <div class="col-12 w-100">
+                    <div class="card p-5" style="color: black;">
+                        <h2 id="question-title">
+                           1. Would you play games developed by Ethiopians
+                        </h2>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card w-100 pt-1" style="color: black;">
-                    <h2>B. no</h2>
-                    <div class="circle-wrap">
-                        <div class="circle">
-                          <div class="mask full">
-                            <div class="fill k2"></div>
-                          </div>
-                          <div class="mask half">
-                            <div class="fill fill2"></div>
-                          </div>
-                          <div class="inside-circle"> 50% </div>
+            <div class="row mb-5" id="options-list">
+                <template id="options-item">
+                    <div class="col-md-6">
+                        <div id="options-list" class="card w-100 py-2" style="color: black;">
+                            <h2 id="option-value">A. yes</h2>
+                            <div class="pie" id="percent">33</div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
-        </div>
-        <div class="row mb-2 mt-2">
-            <div class="col-12 w-100">
-                <div class="card p-5" style="color: black;">
-                    <h2>
-                       2. What do you feel about the quality of games that Ethiopian publishers can provide
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row  mb-2 mt-2">
-            <div class="col-12">
-                <div class="card w-100 p-3">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
+        </template>
         
-        <div class="row mb-2">
-            <div class="col-12">
-                <div class="card w-100 p-3">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="card w-100 p-3">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
-
-        <h1 class="m-5">Survey 2</h1>
-        <div class="row mb-2">
-            <div class="col-12 w-100">
-                <div class="card p-5" style="color: black;">
-                    <h2>
-                       1. Would you play games developed by Ethiopians
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card w-100 pt-1" style="color: black;">
-                    <h2>A. yes</h2>
-                    <div class="circle-wrap">
-                        <div class="circle">
-                          <div class="mask full">
-                            <div class="fill k1"></div>
-                          </div>
-                          <div class="mask half">
-                            <div class="fill fill1"></div>
-                          </div>
-                          <div class="inside-circle"> 50% </div>
-                        </div>
+        <template id="text-card">
+            <div class="row mb-2 mt-2">
+                <div class="col-12 w-100">
+                    <div class="card p-5" style="color: black;">
+                        <h2 id="question-title">
+                           2. What do you feel about the quality of games that Ethiopian publishers can provide
+                        </h2>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card w-100 pt-1" style="color: black;">
-                    <h2>B. no</h2>
-                    <div class="circle-wrap">
-                        <div class="circle">
-                          <div class="mask full">
-                            <div class="fill k2"></div>
-                          </div>
-                          <div class="mask half">
-                            <div class="fill fill2"></div>
-                          </div>
-                          <div class="inside-circle"> 50% </div>
+            <div id="answers-list">
+                
+            </div>
+            <template id="text-answer">
+                <div class="row  mb-2 mt-2">
+                    <div class="col-12">
+                        <div id="answer" class="card w-100 p-3">
+                            It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row mb-2 mt-2">
-            <div class="col-12 w-100">
-                <div class="card p-5" style="color: black;">
-                    <h2>
-                       2. What do you feel about the quality of games that Ethiopian publishers can provide
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="row  mb-2 mt-2">
-            <div class="col-12">
-                <div class="card w-100 p-3">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12">
-                <div class="card w-100 p-3">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
+            </template>
+        </template>
+                    
+    </div>        
 
-        <div class="row">
-            <div class="col-12 w-100 p-3">
-                <div class="card">
-                    It is somehow poor that makes the audiences to feel boring. I think this should be solved ASAP.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--======================================================*****************************=============================================*******************================-->
+        <!--======================================================*****************************=============================================*******************================-->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
         <script src="asset/js/db/dexie.js"></script>
+        <script type="module" src="asset/js/main.js"></script>
+        <script type="module" src="asset/js/dashboard.js"></script>
 </body>
 
 </html>
