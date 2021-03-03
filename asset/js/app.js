@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async() => {
     const signUpBntnComp = document.querySelector("#signUpBntnComp")
     const confirmPassCompany = document.querySelector("#conCamPass")
     let companyPasswordStrength = document.querySelector("#companyPasswordStrength")
+    const other = document.querySelector("#other")
 
-
-
+    other.addEventListener("click", catgor)
     loginBtn.addEventListener("click", login)
     signupBtnP.addEventListener("click", signUpPerson)
     signUpBntnComp.addEventListener("click", signUpPerson)
@@ -41,15 +41,15 @@ document.addEventListener("DOMContentLoaded", async() => {
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
     async function login() {
         let userName = userNameInput.value
-        // let pass = passInput.value
+            // let pass = passInput.value
         let pass = hashCode(passInput.value)
         let user = await user_login(userName, pass)
         if (user) {
             spinnerLogin.style.display = "block"
             localStorage.setItem("user", JSON.stringify(user));
-            if (user.type === "user"){
+            if (user.type === "user") {
                 location.href = "user_page.html";
-            } else{
+            } else {
                 location.href = "company_page.html";
             }
         } else {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         } else {
             // let confirmPassCompany = confirmPassCompany.value
             let confirmPassCompany = hashCode(confirmPassCompany.value)
-            // let companyPass = companyPass.value
+                // let companyPass = companyPass.value
             let companyPass = hashCode(companyPass.value)
             let catgory = catgory.value
             let emailCompany = emailCompany.value
@@ -123,14 +123,15 @@ document.addEventListener("DOMContentLoaded", async() => {
     }
 
     function hashCode(str) { // function to hash the users password
-        let hash = 0, i, chr;
+        let hash = 0,
+            i, chr;
         for (i = 0; i < str.length; i++) {
-          chr   = str.charCodeAt(i);
-          hash  = ((hash << 5) - hash) + chr;
-          hash |= 0; // Convert to 32bit integer
+            chr = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
         }
         return hash;
-      }
+    }
 
 
     function passwordStrength(e) {
@@ -144,11 +145,20 @@ document.addEventListener("DOMContentLoaded", async() => {
         } else if (false == enoughRegex.test(password)) {
             label.innerHTML = '<span style="font-size:14px">More Characters</span>';
         } else if (strongRegex.test(password)) {
-            label.innerHTML =  '<span style="color:green;font-size:14px">Strong!</span>';
+            label.innerHTML = '<span style="color:green;font-size:14px">Strong!</span>';
         } else if (mediumRegex.test(password)) {
-            label.innerHTML =  '<span style="color:orange;font-size:14px">Medium!</span>';
+            label.innerHTML = '<span style="color:orange;font-size:14px">Medium!</span>';
         } else {
-            label.innerHTML =  '<span style="color:red;font-size:14px">Weak!</span>';
+            label.innerHTML = '<span style="color:red;font-size:14px">Weak!</span>';
         }
-}
+    }
+
+    function catgor(e) {
+        e.preventDefault()
+        catgory.style.display = "block"
+        catgory.focus()
+
+
+    }
+
 })
