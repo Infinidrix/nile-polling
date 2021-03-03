@@ -32,13 +32,26 @@ document.addEventListener("DOMContentLoaded", async() => {
     let companyPasswordStrength = document.querySelector("#companyPasswordStrength")
     const other = document.querySelector("#other")
 
-    other.addEventListener("click", catgor)
+
     loginBtn.addEventListener("click", login)
     signupBtnP.addEventListener("click", signUpPerson)
     signUpBntnComp.addEventListener("click", signUpPerson)
     personPass.addEventListener('keyup', passwordStrength)
     companyPass.addEventListener('keyup', passwordStrength)
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
+
+
+    // for company edit page 
+
+
+
+
+
+
+    other.addEventListener("click", catgor)
+
+
+
     async function login() {
         let userName = userNameInput.value
             // let pass = passInput.value
