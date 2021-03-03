@@ -128,12 +128,12 @@ export async function filterSurveysByTag(tag){
     .distinct()
     .filter((user) => user.type === "company")
     .toArray())
-    .map((user) => user.id)
+    .map((user) => user.id);
 
     return await db.surveys.where("company_id")
     .anyOf(companiesWithTag)
     .distinct()
-    .toArray()
+    .toArray();
 }
 // Test for the above function
 // setTimeout(() => filterSurveysByTag("gaming").then(console.log), 2000)

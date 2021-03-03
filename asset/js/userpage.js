@@ -1,8 +1,18 @@
-import { getSurveysForUser, getCompany, addSurveyResults } from "./db/db.js"
+import { getSurveysForUser, getCompany, addSurveyResults, filterSurveysByTag } from "./db/db.js"
 
 document.addEventListener("DBInitalized", async () => {
     let surveyList = await getSurveysForUser(user.id);
     surveyList.forEach(displaySurveys);
+    let tagsList = document.querySelector("#tags-listed");
+    Array.from(tagsList.children).forEach(async (link) => {
+        link.addEventListener("click", async (e) => {
+        document.getElementById('survey-content').innerHTML = "";
+            e.preventDefault();
+            let tag = e.target.textContent;
+            let content = await filterSurveysByTag(tag.toLowerCase());
+            content.forEach(displaySurveys);
+        })
+    })
 })
 
 async function respondToPoll(e){
