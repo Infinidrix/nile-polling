@@ -138,7 +138,7 @@ function saveSurvey(e) { // function to save survey format to the db
         addSurvey(survey)
             .then((result)=>{
                 console.log(result)
-                // history.back()
+                history.back()
             }, (result)=>{
                 console.log("error" + result)
             });
