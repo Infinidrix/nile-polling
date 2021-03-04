@@ -1,5 +1,5 @@
 // =============== imports =================
-import {addSurvey} from './db/db.js'
+import {addSurvey, getSurveysOfCompany} from './db/db.js'
 
 
 //html variables
@@ -29,4 +29,11 @@ function savePoll(){
     }catch(e){
         console.log("Check this error: " + e)
     }
+}
+
+async function updateSurveyCount(){
+    let userSurveys = await getSurveysOfCompany(user.id);
+    let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
+    document.querySelector("#poll-count").textContent = pollCount;
+    document.querySelector("#survey-count").textContent = userSurveys.length - pollCount;
 }

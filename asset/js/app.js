@@ -1,4 +1,5 @@
-import { addUser, init, testDB, user_login } from './db/db.js';
+import { addUser, init, testDB, user_login, getTagsOfCompanies } from './db/db.js';
+
 
 document.addEventListener("DOMContentLoaded", async() => {
 
@@ -31,15 +32,28 @@ document.addEventListener("DOMContentLoaded", async() => {
     const confirmPassCompany = document.querySelector("#conCamPass")
     let companyPasswordStrength = document.querySelector("#companyPasswordStrength")
     const other = document.querySelector("#other")
+    const dropdwn = document.querySelector('.dropdown-menu')
 
 
     loginBtn.addEventListener("click", login)
-    signupBtnPerson.addEventListener("click", signUp)
-    signUpBntnComp.addEventListener("click", signUp)
+    signupBtnP.addEventListener("click", signUpPerson)
+    signUpBntnComp.addEventListener("click", signUpPerson)
     personPass.addEventListener('keyup', passwordStrength)
     companyPass.addEventListener('keyup', passwordStrength)
+    dropdwn.addEventListener("change", displayCategories)
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
-
+  
+    async function displayCategories(){
+        console.log("iuhiuhi");
+        var categories = await getTagsOfCompanies()
+        console.log(categories)
+        categories.forEach(category => {
+        var li = document.createElement('li')
+        li.innerHTML = `<a class="dropdown-item" href="#">${category.value}</a>`;
+        dropdwn.appendChild(li)
+    });
+    }
+    
 
     // for company edit page 
 
@@ -79,7 +93,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         }
     }
 
-    async function signUp(e) {
+    async function signUpPerson(e) {
+
         if (e.target.id === "signupBtnP") {
             let firstName = fName.value;
             let lastName = lName.value;
@@ -94,8 +109,12 @@ document.addEventListener("DOMContentLoaded", async() => {
             let user = await addUser({
                 email: email,
                 password: pass,
+                fName: firstName,
+                lName: lastName,
                 type: "user",
-                tags: [bDate, gender, firstName, lastName]
+                date: bDate,
+                sex: gender,
+                tags: []
             })
             if (user) {
                 localStorage.setItem("user", JSON.stringify(user));
@@ -104,18 +123,30 @@ document.addEventListener("DOMContentLoaded", async() => {
             } else {
                 alert("check again erorr")
             }
-        } else if(e.target.id === "signUpBntnComp") {
+<<<<<<< Updated upstream
+        } else {
+            // let confirmPassCompany = confirmPassCompany.value
+            let confirmPassCompany = hashCode(confirmPassCompany.value)
+                // let companyPass = companyPass.value
+            let companyPass = hashCode(companyPass.value)
+            let catgory = catgory.value
+            let emailCompany = emailCompany.value
+            let companyName = companyName.value
+            let user = await addUser({
+=======
+        } else if (e.target.id === "signUpBntnComp") {
             let confirmPassCompany = hashCode(document.querySelector("#conCamPass").value)
             let companyPass = hashCode(document.querySelector("#cPass").value)
             let category = document.querySelector("#catgory").value
             let emailCompany = document.querySelector("#emailCom").value
             let companyName = document.querySelector("#cName").value
             let user = await addUser({
-                name : companyName,
+                name: companyName,
+>>>>>>> Stashed changes
                 email: emailCompany,
                 password: companyPass,
                 type: "company",
-                tags: [category]
+                tags: [catgory]
             })
             if (user) {
                 localStorage.setItem("user", JSON.stringify(user));
