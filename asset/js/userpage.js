@@ -1,6 +1,7 @@
-import { getSurveysForUser, getCompany, addSurveyResults, filterSurveysByTag } from "./db/db.js"
+import { getSurveysForUser, getCompany, addSurveyResults, filterSurveysByTag, getSurveysOfUser } from "./db/db.js"
 
 document.addEventListener("DBInitalized", async () => {
+    await updateSurveyCount();
     let surveyList = await getSurveysForUser(user.id);
     surveyList.forEach(displaySurveys);
     let tagsList = document.querySelector("#tags-listed");
@@ -15,14 +16,21 @@ document.addEventListener("DBInitalized", async () => {
     })
 })
 
+async function updateSurveyCount(){
+    let userSurveys = await getSurveysOfUser(user.id);
+    let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
+    document.querySelector("#poll-count").textContent = pollCount;
+    document.querySelector("#survey-count").textContent = userSurveys.length - pollCount;
+}
+
 async function respondToPoll(e){
     e.preventDefault()
     const target = this;
-    console.log(this);
     let survey_id = parseInt(target.getAttribute("data-id"));
     let action = target.getAttribute("data-action");
     console.log([user.id, survey_id, [action]]);
     await addSurveyResults(user.id, survey_id, [action]);
+    await updateSurveyCount();
 }
 
 export async function displaySurveys(survey){
