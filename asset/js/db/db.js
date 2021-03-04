@@ -65,8 +65,19 @@ export async function user_login(email, password) {
     return result || null;
 }
 
-export async function getCompany(company_id) {
-    return await db.users.get(company_id)
+export async function getAllCompany(){
+  let allUsers = await db.users.toArray()
+  let companies = []
+  allUsers.forEach((usr)=>{
+    if (usr.type === 'company'){
+      companies.push(usr)
+    }
+  })
+  return companies;
+}
+
+export async function getCompany(company_id){
+  return await db.users.get(company_id)
 }
 /**
  * 
@@ -315,45 +326,40 @@ function hashCode(str) { // function to hash the users password
     return hash;
 }
 
-async function populateDB() {
-    await addUser({ email: "se.biruk.solomon@gmail.com", password: hashCode("LifeIsShort"), type: "user", tags: ["education", "economics"] });
-    await addUser({ email: "se.hanan.miftah@gmail.com", password: hashCode("SuperSecurePassword"), type: "user", tags: ["education", "health"] });
-    await addUser({ email: "se.natneam.mesele@gmail.com", password: hashCode("DuplicatePassword"), type: "user", tags: ["education", "phliosophy"] });
-    await addUser({ email: "se.abdulfeta.dedgba@gmail.com", password: hashCode("DuplicatePassword"), type: "user", tags: ["education", "gaming", "business"] });
-    await addUser({ email: "marketer@company.org", password: hashCode("BusinessCasual"), type: "company", tags: ["gaming", "economics"] });
-    await addUser({ email: "ngo@charity.com", password: hashCode("HelpEveryone"), type: "company", tags: ["education", "health"] });
-    await addSurvey({ company_id: 5, type: "poll", date: new Date(2020, 12, 3), title: "Do you think that games are good for the economy", respondents: [0] });
-    await addSurvey({ company_id: 6, type: "poll", date: new Date(2020, 12, 4), title: "Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0] });
-    await addSurvey({ company_id: 5, type: "poll", date: new Date(2020, 12, 5), title: "Would you be interested in working in a game development company if training is provided", respondents: [0] });
-    await addSurvey({ company_id: 6, type: "poll", date: new Date(2020, 12, 6), title: "Increase government budget for public hospitals!!", respondents: [0] });
-    await addSurvey({
-        company_id: 5,
-        type: "survey",
-        date: new Date(2020, 12, 6, 4),
-        title: "Would you play games developed by Ethiopians",
-        description: "How do you feel about playing games by Ethiopians for Ethiopians. We're talking about fighting through Adwa and playing yegena chewata",
-        questions: [
-            { type: "option", questions: "Have you tried Ethiopian games before", options: ["Yes", "No"] },
-            { type: "text", questions: "What do you feel about the quality of games that Ethiopian publishers can provide", options: [] },
-        ],
-        respondents: [0]
-    });
-    await addSurvey({
-        company_id: 6,
-        type: "survey",
-        date: new Date(2020, 12, 6, 4),
-        title: "What's the health coverage like in Ethiopia",
-        description: "We want to know about any difficulties or good results you've had from public hospitals in Ethiopia",
-        questions: [
-            { type: "option", questions: "Have you ever been to a public hospital in Ethiopia", options: ["Yes", "No"] },
-            { type: "text", questions: "How was the quality of the doctors", options: [] },
-            { type: "text", questions: "How was the quality of other staff", options: [] },
-            { type: "text", questions: "How was the quality of the equipment", options: [] },
-            { type: "text", questions: "How was the overall experience", options: [] },
-        ],
-        respondents: [0]
-    });
-    await addSurveyResults(4, 1, ["Agree"]);
-    await addSurveyResults(1, 1, ["Disagree"]);
-    await addSurveyResults(4, 5, [0, "I don't feel like it's in a good place now but there's a lot of room to improve and I'd be glad to play and test them out."]);
+async function populateDB(){
+  await addUser({email: "se.biruk.solomon@gmail.com", password:hashCode("LifeIsShort"), type:"user", tags: ["education", "economics"]});
+  await addUser({email: "se.hanan.miftah@gmail.com", password:hashCode("SuperSecurePassword"), type:"user", tags: ["education", "health"]});
+  await addUser({email: "se.natneam.mesele@gmail.com", password:hashCode("DuplicatePassword"), type:"user", tags: ["education", "phliosophy"]});
+  await addUser({email: "se.abdulfeta.dedgba@gmail.com", password:hashCode("DuplicatePassword"), type:"user", tags: ["education", "gaming", "business"]});
+  await addUser({name: "Company 1", email: "marketer@company.org", password:hashCode("BusinessCasual"), type:"company", tags: ["gaming", "economics"]});
+  await addUser({name: "Company 2",email: "ngo@charity.com", password:hashCode("HelpEveryone"), type:"company", tags: ["education", "health"]});
+  await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 3), title:"Do you think that games are good for the economy", respondents: [0]});
+  await addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 4), title:"Would you consider participating in a fundraiser for building better school facilites for underprevilaged kids", respondents: [0]});
+  await addSurvey({company_id: 5, type:"poll", date: new Date(2020, 12, 5), title:"Would you be interested in working in a game development company if training is provided", respondents: [0]});
+  await addSurvey({company_id: 6, type:"poll", date: new Date(2020, 12, 6), title:"Increase government budget for public hospitals!!", respondents: [0]});
+  await addSurvey({company_id: 5, type:"survey", date: new Date(2020, 12, 6, 4), 
+    title:"Would you play games developed by Ethiopians", 
+    description: "How do you feel about playing games by Ethiopians for Ethiopians. We're talking about fighting through Adwa and playing yegena chewata",
+    questions:[
+      {type:"option", questions: "Have you tried Ethiopian games before", options:["Yes", "No"]},
+      {type:"text", questions: "What do you feel about the quality of games that Ethiopian publishers can provide", options:[]},
+    ],
+    respondents: [0]
+  });
+  await addSurvey({company_id: 6, type:"survey", date: new Date(2020, 12, 6, 4), 
+    title:"What's the health coverage like in Ethiopia", 
+    description: "We want to know about any difficulties or good results you've had from public hospitals in Ethiopia",
+    questions:[
+      {type:"option", questions: "Have you ever been to a public hospital in Ethiopia", options:["Yes", "No"]},
+      {type:"text", questions: "How was the quality of the doctors", options:[]},
+      {type:"text", questions: "How was the quality of other staff", options:[]},
+      {type:"text", questions: "How was the quality of the equipment", options:[]},
+      {type:"text", questions: "How was the overall experience", options:[]},
+    ],
+    respondents: [0]
+  });  
+  await addSurveyResults(4, 1, ["Agree"]);
+  await addSurveyResults(1, 1, ["Disagree"]);
+  await addSurveyResults(4, 5, [0, "I don't feel like it's in a good place now but there's a lot of room to improve and I'd be glad to play and test them out."]);
+
 }
