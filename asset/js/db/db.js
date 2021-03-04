@@ -147,26 +147,30 @@ export async function filterSurveysByTag(tag) {
  * 
  * @returns {Promise<Object>} The saved survey results object
  */
-export async function addSurveyResults(user_id, survey_id, answers) {
-    let obj = { user_id, survey_id, answers, date: new Date() };
-    try {
-        // add the survey results
-        let result = await db.survey_results.add(obj);
-        let survey = await db.surveys.get(survey_id);
-        survey.respondents.push(user_id);
-        await db.surveys.update(survey_id, survey);
-        console.log(await db.surveys.get(survey_id));
-        return await db.survey_results.get(result);
-    } catch (e) {
-        // if the error is because of a duplicate primary key then it will update it
-        if (e.name === "ConstraintError") {
-            let result = await db.survey_results.update({ user_id, survey_id }, obj);
-            return await db.survey_results.get({ user_id, survey_id });
-        } else {
-            console.warn("Adding Survey failed: " + e);
-            throw e
-        }
+export async function addSurveyResults(user_id, survey_id, answers){
+  let obj = {user_id, survey_id, answers, date: new Date()};
+  try {
+    // add the survey results
+    let survey = await db.surveys.get(survey_id);
+    if (survey.closed){
+      console.warn("survey is closed.");
+      return
     }
+    let result = await db.survey_results.add(obj);
+    survey.respondents.push(user_id);
+    await db.surveys.update(survey_id, survey);
+    console.log(await db.surveys.get(survey_id));
+    return await db.survey_results.get(result);
+  } catch (e){
+    // if the error is because of a duplicate primary key then it will update it
+    if (e.name === "ConstraintError"){
+      let result = await db.survey_results.update({user_id, survey_id}, obj);
+      return await db.survey_results.get({user_id, survey_id});
+    } else {
+      console.warn("Adding Survey failed: " + e);
+      throw e
+    }
+  }
 }
 
 
@@ -189,15 +193,15 @@ export async function addSurvey(survey) {
  * 
  * @returns {Promise<Array<Object>>} List of survey objects
  */
-export async function getSurveysForUser(user_id) {
-    return await db.surveys.where("respondents")
-        .notEqual(user_id)
-        .distinct()
-        .filter(function(survey) {
-            return !survey.respondents.includes(user_id);
-        })
-        .reverse()
-        .sortBy("date");
+export async function getSurveysForUser(user_id){
+  return await db.surveys.where("respondents")
+    .notEqual(user_id)
+    .distinct()
+    .filter(function (survey) {
+      return !survey.respondents.includes(user_id) && !survey.closed;
+    })
+    .reverse()
+    .sortBy("date");
 }
 
 /**
@@ -249,6 +253,21 @@ export async function getAgreeForSurvey(survey_id) {
  */
 export async function getSurvey(survey_id) {
     return await db.surveys.get(survey_id)
+}
+
+export async function closeSurveyByID(survey_id){
+  let result = await db.surveys.get(survey_id);
+  result.closed = true;
+  return await db.surveys.update(survey_id, result);
+}
+export async function openSurveyByID(survey_id){
+  let result = await db.surveys.get(survey_id);
+  result.closed = false;
+  return await db.surveys.update(survey_id, result);
+}
+
+export async function deleteSurveyByID(survey_id){
+  return await db.surveys.delete(survey_id)
 }
 
 /**
