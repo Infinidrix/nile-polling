@@ -6,6 +6,9 @@ document.addEventListener("DBInitalized", async () => {
     let survey = await getSurvey(survey_id);
     if (!survey){
         console.warn("survey id not found " + survey_id);
+    }else if (survey.closed){
+        alert("Survey is closed");
+        location.href = "user_page.html";
     }
 
     let title = survey.title;
