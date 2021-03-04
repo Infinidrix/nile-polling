@@ -1,4 +1,4 @@
-import { getSurveysOfCompany, getAgreeForSurvey, closeSurveyByID } from "./db/db.js"
+import { getSurveysOfCompany, getAgreeForSurvey, closeSurveyByID, deleteSurveyByID, openSurveyByID } from "./db/db.js"
 document.addEventListener("DBInitalized", async () => {
     let surveyList = await getSurveysOfCompany(user.id);
 
@@ -32,9 +32,24 @@ export async function displaySurveys(survey){
     } else {
         instance.querySelector("#surveyC").href = "survey_dashboard.html?id=" + survey.id;
     }
-    instance.querySelector("#close-btn").onclick = async () => await closeSurvey(survey.id);
+    let closeBtn = instance.querySelector("#close-btn")
+    if (survey.closed){
+        closeBtn.textContent = "Open";
+    }
+    closeBtn.onclick = async() => chooseAction(closeBtn, survey.id)
     instance.querySelector("#delete-btn").onclick = async () => await deleteSurvey(survey.id);
     document.getElementById('survey-content').appendChild(instance);
+}
+
+async function chooseAction(btn, id){
+    if (btn.textContent == "Open"){
+        btn.textContent = "Close";
+        await closeSurvey(id)
+    } else {
+        btn.textContent = "Open";
+        await openSurvey(id)
+    }
+
 }
 
 async function closeSurvey(id){
@@ -43,9 +58,15 @@ async function closeSurvey(id){
     console.log(await closeSurveyByID(id));
     
 }
+async function openSurvey(id){
+    console.log("This is the open button for id " + id);
+
+    console.log(await openSurveyByID(id));
+    
+}
 async function deleteSurvey(id){
-    console.log("This is the delete button");
-    console.log(id);
+    console.log("This is the delete button for id " + id);
 
 
+    return await deleteSurveyByID(id);
 }

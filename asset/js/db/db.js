@@ -261,8 +261,16 @@ export async function getSurvey(survey_id){
 export async function closeSurveyByID(survey_id){
   let result = await db.surveys.get(survey_id);
   result.closed = true;
-  console.log();
   return await db.surveys.update(survey_id, result);
+}
+export async function openSurveyByID(survey_id){
+  let result = await db.surveys.get(survey_id);
+  result.closed = false;
+  return await db.surveys.update(survey_id, result);
+}
+
+export async function deleteSurveyByID(survey_id){
+  return await db.surveys.delete(survey_id)
 }
 
 /**
