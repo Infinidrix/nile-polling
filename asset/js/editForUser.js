@@ -24,6 +24,8 @@ document.addEventListener("DBInitalized", async() => {
     save.addEventListener("click", saveUser)
     chckingGender()
 
+    await updateSurveyCount();
+
     function saveUser(e) {
         //   burra function
         let user = await addUser({
@@ -55,6 +57,11 @@ document.addEventListener("DBInitalized", async() => {
 
     }
 
-
+    async function updateSurveyCount(){
+        let userSurveys = await getSurveysOfUser(user.id);
+        let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
+        document.querySelector("#poll-count").textContent = pollCount;
+        document.querySelector("#survey-count").textContent = userSurveys.length - pollCount;
+    }
 
 })

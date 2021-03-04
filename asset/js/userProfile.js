@@ -1,3 +1,5 @@
+import { getSurveysOfUser } from "./db/db.js";
+
 document.addEventListener("DBInitalized", async() => {
 
     // const edit = document.querySelector("#edit")
@@ -40,6 +42,14 @@ document.addEventListener("DBInitalized", async() => {
 
     }
 
+    await updateSurveyCount();
+
+    async function updateSurveyCount(){
+        let userSurveys = await getSurveysOfUser(user.id);
+        let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
+        document.querySelector("#poll-count").textContent = pollCount;
+        document.querySelector("#survey-count").textContent = userSurveys.length - pollCount;
+    }
 
 
 })
