@@ -24,14 +24,14 @@ document.addEventListener("DBInitalized", async() => {
     save.addEventListener("click", saveUser)
     chckingGender()
 
-    function saveUser(e) {
+    async function saveUser(e) {
         //   burra function
-        let user = await addUser({
-            email: email,
-            password: pass,
-            type: "user",
-            tags: [date.value, genderReveal(), fName.value, lName.value]
-        })
+        // let user = await addUser({
+        //     email: email,
+        //     password: pass,
+        //     type: "user",
+        //     tags: [date.value, genderReveal(), fName.value, lName.value]
+        // })
     }
 
     function genderReveal() {

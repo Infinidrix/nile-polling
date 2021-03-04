@@ -18,16 +18,14 @@ document.addEventListener("DBInitalized", async() => {
 
     async function saveCompany(e) {
         //   burra function
-        let user = await addUser({
-            email: gmail.value,
-            password: pass,
-            type: "company",
-            tags: [catagory.value]
-        })
+        // let user = await addUser({
+        //     email: gmail.value,
+        //     password: pass,
+        //     type: "company",
+        //     tags: [catagory.value]
+        // })
         console.log("here")
+        location.href = "company_profile.htmlhtml"
     }
-
-
-
 
 })
