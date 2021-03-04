@@ -32,7 +32,7 @@
                     <ul class="navbar-nav ms-auto me-4">
 
                         <li id="full " class="nav-item">
-                            <a href="# ">
+                            <a href="./user_profile.html">
                                 <img class="profile img-fluid d-none  d-lg-block " src="asset/image/maale.png" alt="profile image ">
                             </a>
                         </li>
@@ -116,7 +116,7 @@
                                 </h5>
                             </div>
                             <div class="col-md-8">
-                                <h5>
+                                <h5 id="fName">
                                     Natenam
                                 </h5>
                             </div>
@@ -128,7 +128,7 @@
                                 </h5>
                             </div>
                             <div class="col-md-8">
-                                <h5>
+                                <h5 id="lName">
                                     Melese
                                 </h5>
                             </div>
@@ -140,7 +140,7 @@
                                 </h5>
                             </div>
                             <div class="col-md-8">
-                                <h5>
+                                <h5 id="gmail">
                                     Se.natenam.melese@gmail.com
                                 </h5>
                             </div>
@@ -153,7 +153,7 @@
                                 </h5>
                             </div>
                             <div class="col-md-8">
-                                <h5>
+                                <h5 id="date">
                                     JAN - 12 - 199
                                 </h5>
                             </div>
@@ -165,7 +165,7 @@
                                 </h5>
                             </div>
                             <div class="col-md-8">
-                                <h5>
+                                <h5 id="gender">
                                     Male
                                 </h5>
                             </div>
@@ -185,9 +185,13 @@
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-md-4">
-                                <button class=" btn btn-primary border-1 border-dark rounded-pill " style="height:3em;width:10em;background-color:rgba(4, 119, 235, 0.0);color:black" type="button ">
-                                    <i class="fas fa-edit"></i> Edit</button>
+                            <div class="col-md-4 mt-2">
+                                <a href="/editUserPage.html" id="editCompany" class=" btn btn-primary border-1 border-dark rounded-pill " style="height:3em;width:10em;background-color:rgba(4, 119, 235, 0.0);color:black" type="button ">
+                                    <i class="fas fa-edit"></i> Edit</a>
+                            </div>
+                            <div class="col-md-4 mt-2">
+                                <a href="/changePassword.html" class=" btn btn-primary border-1 border-dark rounded-pill " style="height:3em;background-color:rgba(4, 119, 235, 0.0);color:black" type="button ">
+                                    <i class="fas fa-unlock-alt"></i> Change Password</a>
                             </div>
                         </div>
                     </div>
@@ -263,7 +267,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js "></script>
 
         <script src="asset/js/db/dexie.js"></script>
-        <script type="module" src="asset/js/app.js"></script>
+        <script type="module" src="asset/js/main.js"></script>
+
+        <script type="module" src="asset/js/main.js"></script>
+        <script type="module" src="asset/js/userProfile.js"></script>
 </body>
 
 </html>
