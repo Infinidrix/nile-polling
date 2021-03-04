@@ -7,10 +7,9 @@ document.addEventListener("DBInitalized", async() => {
     const catagory = document.querySelector("#catagory")
     const comName = document.querySelector("#comName")
     const svaeComapny = document.querySelector("#svaeComapny")
-    comName.value = "Company 1"
+    comName.value = user.name
     gmail.value = user.email
     catagory.value = user.tags[0]
-    console.log(user.email)
     var pass = user.password
 
     // user_login
@@ -18,22 +17,16 @@ document.addEventListener("DBInitalized", async() => {
     await updateSurveyCount()
 
     async function saveCompany(e) {
-        //   burra function
-        let user = await addUser({
-            email: gmail.value,
-            password: pass,
-            type: "company",
-            tags: [catagory.value]
-        })
-        console.log("here")
+        user.name = comName.value
+        user.catagory = catagory.value
+        user.email = gmail.value
+
+        location.href = "company_profile.html"
     }
-
-
-
 
 })
 
-async function updateSurveyCount(){
+async function updateSurveyCount() {
     let userSurveys = await getSurveysOfCompany(user.id);
     let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
     document.querySelector("#poll-count").textContent = pollCount;
