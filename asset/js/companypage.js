@@ -44,10 +44,10 @@ export async function displaySurveys(survey){
 async function chooseAction(btn, id){
     if (btn.textContent == "Open"){
         btn.textContent = "Close";
-        await closeSurvey(id)
+        await openSurvey(id)
     } else {
         btn.textContent = "Open";
-        await openSurvey(id)
+        await closeSurvey(id)
     }
 
 }
