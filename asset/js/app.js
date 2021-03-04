@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", async() => {
 
 
     loginBtn.addEventListener("click", login)
-    signupBtnP.addEventListener("click", signUpPerson)
-    signUpBntnComp.addEventListener("click", signUpPerson)
+    signupBtnPerson.addEventListener("click", signUp)
+    signUpBntnComp.addEventListener("click", signUp)
     personPass.addEventListener('keyup', passwordStrength)
     companyPass.addEventListener('keyup', passwordStrength)
         // user_login("se.biruk.solomon@gmail.com", "LifeIsShort").then(console.log)
@@ -80,8 +80,7 @@ document.addEventListener("DOMContentLoaded", async() => {
         }
     }
 
-    async function signUpPerson(e) {
-
+    async function signUp(e) {
         if (e.target.id === "signupBtnP") {
             let firstName = fName.value;
             let lastName = lName.value;
@@ -106,19 +105,18 @@ document.addEventListener("DOMContentLoaded", async() => {
             } else {
                 alert("check again erorr")
             }
-        } else {
-            // let confirmPassCompany = confirmPassCompany.value
-            let confirmPassCompany = hashCode(confirmPassCompany.value)
-                // let companyPass = companyPass.value
-            let companyPass = hashCode(companyPass.value)
-            let catgory = catgory.value
-            let emailCompany = emailCompany.value
-            let companyName = companyName.value
+        } else if(e.target.id === "signUpBntnComp") {
+            let confirmPassCompany = hashCode(document.querySelector("#conCamPass").value)
+            let companyPass = hashCode(document.querySelector("#cPass").value)
+            let category = document.querySelector("#catgory").value
+            let emailCompany = document.querySelector("#emailCom").value
+            let companyName = document.querySelector("#cName").value
             let user = await addUser({
+                name : companyName,
                 email: emailCompany,
                 password: companyPass,
                 type: "company",
-                tags: [catgory]
+                tags: [category]
             })
             if (user) {
                 localStorage.setItem("user", JSON.stringify(user));
