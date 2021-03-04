@@ -270,6 +270,21 @@ export async function deleteSurveyByID(survey_id){
   return await db.surveys.delete(survey_id)
 }
 
+export async function updateUser(user){
+  return await db.users.update(user.id, user);
+}
+
+export async function getTagsOfCompanies(){
+    let tags = new Set();
+
+    (await db.users.toArray())
+        .forEach((user) => {
+            user.tags.forEach((tag) => tags.add(tag));
+        })
+
+    return Array.from(tags)
+}
+
 /**
  * A function to test the DB
  */
