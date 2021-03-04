@@ -109,8 +109,12 @@ document.addEventListener("DOMContentLoaded", async() => {
             let user = await addUser({
                 email: email,
                 password: pass,
+                fName: firstName,
+                lName: lastName,
                 type: "user",
-                tags: [bDate, gender, firstName, lastName]
+                date: bDate,
+                sex: gender,
+                tags: []
             })
             if (user) {
                 localStorage.setItem("user", JSON.stringify(user));
@@ -119,6 +123,7 @@ document.addEventListener("DOMContentLoaded", async() => {
             } else {
                 alert("check again erorr")
             }
+<<<<<<< Updated upstream
         } else {
             // let confirmPassCompany = confirmPassCompany.value
             let confirmPassCompany = hashCode(confirmPassCompany.value)
@@ -128,6 +133,16 @@ document.addEventListener("DOMContentLoaded", async() => {
             let emailCompany = emailCompany.value
             let companyName = companyName.value
             let user = await addUser({
+=======
+        } else if (e.target.id === "signUpBntnComp") {
+            let confirmPassCompany = hashCode(document.querySelector("#conCamPass").value)
+            let companyPass = hashCode(document.querySelector("#cPass").value)
+            let category = document.querySelector("#catgory").value
+            let emailCompany = document.querySelector("#emailCom").value
+            let companyName = document.querySelector("#cName").value
+            let user = await addUser({
+                name: companyName,
+>>>>>>> Stashed changes
                 email: emailCompany,
                 password: companyPass,
                 type: "company",

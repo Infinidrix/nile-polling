@@ -13,10 +13,10 @@ document.addEventListener("DBInitalized", async() => {
 
     // user_login
     gmail.innerHTML = user.email
-    date.innerHTML = user.tags[0]
-    fName.innerHTML = "Abdi"
-    lName.innerHTML = "De"
-    gender.innerHTML = user.tags[1]
+    date.innerHTML = user.date
+    fName.innerHTML = user.fName
+    lName.innerHTML = user.lName
+    gender.innerHTML = user.sex
         // chckingGender()
 
     function genderReveal() {

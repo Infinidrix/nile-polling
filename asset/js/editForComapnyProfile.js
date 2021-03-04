@@ -1,4 +1,4 @@
-import { addUser, init, testDB, user_login } from './db/db.js';
+import { addUser, init, testDB, user_login, updateUser } from './db/db.js';
 
 document.addEventListener("DBInitalized", async() => {
 
@@ -7,25 +7,20 @@ document.addEventListener("DBInitalized", async() => {
     const catagory = document.querySelector("#catagory")
     const comName = document.querySelector("#comName")
     const svaeComapny = document.querySelector("#svaeComapny")
-    comName.value = "Company 1"
+    comName.value = user.name
     gmail.value = user.email
     catagory.value = user.tags[0]
-    console.log(user.email)
     var pass = user.password
 
     // user_login
     svaeComapny.addEventListener("click", saveCompany)
 
     async function saveCompany(e) {
-        //   burra function
-        // let user = await addUser({
-        //     email: gmail.value,
-        //     password: pass,
-        //     type: "company",
-        //     tags: [catagory.value]
-        // })
-        console.log("here")
-        location.href = "company_profile.htmlhtml"
+        user.name = comName.value
+        user.catagory = catagory.value
+        user.email = gmail.value
+
+        location.href = "company_profile.html"
     }
 
 })

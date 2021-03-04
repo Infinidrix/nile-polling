@@ -1,4 +1,4 @@
-import { addUser, init, testDB, user_login } from './db/db.js';
+import { addUser, init, testDB, user_login, updateUser } from './db/db.js';
 // import { hashCode, passwordStrength } from './app.js';
 
 document.addEventListener("DBInitalized", async() => {
@@ -18,12 +18,19 @@ document.addEventListener("DBInitalized", async() => {
     async function changeP(e) {
         //   burra function
         if (hashCode(oldPass.value) === user.password) {
-            alert(newPassword.value === conPass.value)
+            console.log(1)
+            if (conPass.value === newPassword.value) {
+                user.password = newPassword.value
+                await updateUser(user)
+                console.log(2)
+
+            }
         } else {
-            alert(hashCode(oldPass))
-            alert(user.password)
+            console.log("man")
 
         }
+        location.href = "user_profile.html"
+
     }
 
     function hashCode(str) { // function to hash the users password

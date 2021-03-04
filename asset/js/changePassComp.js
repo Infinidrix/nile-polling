@@ -15,34 +15,19 @@ document.addEventListener("DBInitalized", async() => {
     // user_login
     change.addEventListener("click", changeP)
 
-    newPassword.addEventListener("keyup", passwordStrength)
-
-    // function passwordStrength(e) {
-    //     let password = e.target.value;
-    //     let label = e.target.nextElementSibling;
-    //     let strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-    //     let mediumRegex = new RegExp("^(?=.{6,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-    //     let enoughRegex = new RegExp("(?=.{4,}).*", "g");
-    //     if (password.length == 0) {
-    //         label.innerHTML = '<span style="font-size:14px">Type Password</span>'
-    //     } else if (false == enoughRegex.test(password)) {
-    //         label.innerHTML = '<span style="font-size:14px">More Characters</span>';
-    //     } else if (strongRegex.test(password)) {
-    //         label.innerHTML = '<span style="color:green;font-size:14px">Strong!</span>';
-    //     } else if (mediumRegex.test(password)) {
-    //         label.innerHTML = '<span style="color:orange;font-size:14px">Medium!</span>';
-    //     } else {
-    //         label.innerHTML = '<span style="color:red;font-size:14px">Weak!</span>';
-    //     }
-    // }
 
     async function changeP(e) {
         //   burra function
         if (hashCode(oldPass.value) === user.password) {
-            alert(newPassword.value === conPass.value)
+            if (conPass.value === newPassword.value) {
+                user.password = newPassword.value
+                await updateUser(user)
+                console.log(2)
+
+            }
         } else {
-            alert(hashCode(oldPass))
-            alert(user.password)
+
+            location.href = "company_profile.html"
 
         }
     }

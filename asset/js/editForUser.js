@@ -1,4 +1,4 @@
-import { addUser, init, testDB, user_login } from './db/db.js';
+import { addUser, init, testDB, updateUser, user_login } from './db/db.js';
 
 document.addEventListener("DBInitalized", async() => {
 
@@ -19,8 +19,8 @@ document.addEventListener("DBInitalized", async() => {
     console.log(user.email)
     gmail.value = user.email
     date.value = user.tags[0]
-    fName.value = "Abdi"
-    lName.value = "De"
+    fName.value = user.fName
+    lName.value = user.lName
     save.addEventListener("click", saveUser)
     chckingGender()
 
@@ -32,6 +32,13 @@ document.addEventListener("DBInitalized", async() => {
         //     type: "user",
         //     tags: [date.value, genderReveal(), fName.value, lName.value]
         // })
+        user.fName = fName.value
+        user.lName = lName.value
+        user.email = gmail.value
+        user.sex = genderReveal()
+        user.date = date.value
+        await updateUser(user)
+        location.href = "user_profile.html"
     }
 
     function genderReveal() {
