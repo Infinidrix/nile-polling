@@ -152,8 +152,12 @@ export async function addSurveyResults(user_id, survey_id, answers){
   let obj = {user_id, survey_id, answers, date: new Date()};
   try {
     // add the survey results
-    let result = await db.survey_results.add(obj);
     let survey = await db.surveys.get(survey_id);
+    if (survey.closed){
+      console.warn("survey is closed.");
+      return
+    }
+    let result = await db.survey_results.add(obj);
     survey.respondents.push(user_id);
     await db.surveys.update(survey_id, survey);
     console.log(await db.surveys.get(survey_id));
@@ -191,14 +195,14 @@ export async function addSurvey(survey){
  * @returns {Promise<Array<Object>>} List of survey objects
  */
 export async function getSurveysForUser(user_id){
-    return await db.surveys.where("respondents")
-      .notEqual(user_id)
-      .distinct()
-      .filter(function (survey) {
-        return !survey.respondents.includes(user_id);
-      })
-      .reverse()
-      .sortBy("date");
+  return await db.surveys.where("respondents")
+    .notEqual(user_id)
+    .distinct()
+    .filter(function (survey) {
+      return !survey.respondents.includes(user_id) && !survey.closed;
+    })
+    .reverse()
+    .sortBy("date");
 }
 
 /**
@@ -252,6 +256,13 @@ export async function getAgreeForSurvey(survey_id){
  */
 export async function getSurvey(survey_id){
   return await db.surveys.get(survey_id)
+}
+
+export async function closeSurveyByID(survey_id){
+  let result = await db.surveys.get(survey_id);
+  result.closed = true;
+  console.log();
+  return await db.surveys.update(survey_id, result);
 }
 
 /**
