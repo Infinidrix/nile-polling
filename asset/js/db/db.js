@@ -73,7 +73,6 @@ export async function getAllCompany(){
     if (usr.type === 'company'){
       companies.push(usr)
     }
-    console.log(usr.type === 'company')
   })
   return companies;
 }
