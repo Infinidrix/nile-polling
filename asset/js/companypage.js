@@ -39,6 +39,14 @@ export async function displaySurveys(survey){
     closeBtn.onclick = async() => chooseAction(closeBtn, survey.id)
     instance.querySelector("#delete-btn").onclick = async () => await deleteSurvey(survey.id);
     document.getElementById('survey-content').appendChild(instance);
+    await updateSurveyCount()
+}
+
+async function updateSurveyCount(){
+    let userSurveys = await getSurveysOfCompany(user.id);
+    let pollCount = userSurveys.filter((survey) => survey.type == "poll").length;
+    document.querySelector("#poll-count").textContent = pollCount;
+    document.querySelector("#survey-count").textContent = userSurveys.length - pollCount;
 }
 
 async function chooseAction(btn, id){

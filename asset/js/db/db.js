@@ -2,6 +2,8 @@ let db;
 /**
  * Initiaized the DB
  */
+
+
 export async function init() {
     db = new Dexie("Survey And Polling");
     // creates the DB stores
@@ -65,19 +67,12 @@ export async function user_login(email, password) {
     return result || null;
 }
 
-export async function getAllCompany(){
-  let allUsers = await db.users.toArray()
-  let companies = []
-  allUsers.forEach((usr)=>{
-    if (usr.type === 'company'){
-      companies.push(usr)
-    }
-  })
-  return companies;
+export function logOut(){
+    localStorage.clear()
 }
 
-export async function getCompany(company_id){
-  return await db.users.get(company_id)
+export async function getCompany(company_id) {
+    return await db.users.get(company_id)
 }
 /**
  * 
